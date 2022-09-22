@@ -379,7 +379,7 @@ background-size: cover;
  @media (max-width: 480px) {
     #home {
         background-image: url("Mobile\ website.jpg");
-        background-size: contain;
+        background-size: 100%;
         margin-top: -25%;
     }
 
