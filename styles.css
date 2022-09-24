@@ -377,6 +377,10 @@ background-size: cover;
 
  /* MOBILE WEBSITE UNDER CONSTRUCTION */
  @media (max-width: 480px) {
+     html {
+        overflow: hidden;
+    }
+     
     #home {
         background-image: url("Mobile\ website.jpg");
         background-size: 100%;
