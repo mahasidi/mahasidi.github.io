@@ -8,7 +8,7 @@ html {
     font-family: 'Syne', sans-serif;
     /*minimize page and doesnt change anything*/
     /*width: 200vh;*/
-    overflow: hidden;
+    overflow: scroll;
 }
 
 li, a {
