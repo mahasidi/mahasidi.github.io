@@ -101,6 +101,7 @@ body { padding-top: 60px; }
 }
 
 #home img {
+    transition: all 1s ease-in-out;
     width: 40%;
     height: 40%;
     border-top-left-radius: 300px;
@@ -112,6 +113,11 @@ body { padding-top: 60px; }
     margin-right: 7%;
     border: solid;
    
+}
+
+#home img:hover {
+    transition: all 1s ease-in-out;
+    filter: drop-shadow(0 0 0.75rem black);
 }
 
 #page-layout {
@@ -178,7 +184,13 @@ body { padding-top: 60px; }
     width: 46%;
     height: 46%;
     padding-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
+
+#flood:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
 
 
 #pro {
@@ -186,21 +198,39 @@ body { padding-top: 60px; }
     width: 75%;
     height: 75%;
     padding-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
+
+#pro:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
 
 #marble {
     padding-top: 0px;
     width: 60%;
     height: 60%;
     padding-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
+
+#marble:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
 
 #c {
     padding-top: 0px;
     width: 75%;
     height: 75%;
     padding-bottom: 10px;
+    transition: all 1s ease-in-out;
 }
+
+#c:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
 
 .images.right.cert {
     position: relative;
@@ -228,25 +258,38 @@ body { padding-top: 60px; }
   font-size: 16px;
   cursor: pointer;
   border-color: #e7e7e7;
-  color: black;
   font-family: 'Syne', serif;
   letter-spacing: 2px;
   margin-left: 5%;
-    
+  transition: all 1s ease-in-out;
 }
 .sub-button:hover {
     background: #AA998F;
+    transition: all 1s ease;
   }
 
  #cover {
     width: 13%;
     height: 13%;
+    transition: all 1s ease-in-out;
+  }
+
+  #cover:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
   }
 
   #spread {
     width: 26%;
     height: 26%;
+    transition: all 1s ease-in-out;
   }
+
+  #spread:hover {
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
+  }
+  
 
   .heading-right-design {
     text-align: center;
@@ -270,45 +313,38 @@ body { padding-top: 60px; }
 
 
   .book-button {
-    border: 2px solid black;
-     background-color: white;
-     color: black;
-     padding: 1% 1%;
+    text-decoration: underline;
      font-size: 16px;
-     cursor: pointer;
-     border-color: #e7e7e7;
-     color: black;
+     color:  #AA998F;
      font-family: 'Syne', serif;
-     margin-left: 5%;
-     margin-bottom: 10px;
-       
+     margin: auto;
+     padding-bottom: 10px;
    }
   .book-button:hover {
-       background: #AA998F;
+    color:  #AA998F;
      }
 
-    #poster {
-        width: 18%;
-        height: 18%;
-      }
-    
-    #outdoors {
-        width: 30%;
-        height: 30%;
-        padding-right: 1%;
-        padding-left: 1%;
-      }
-
-    #tote {
-        width: 21%;
-        height: 21%;
+     #video {
+        border-radius: 40px;
+        width: 250px;
+        margin: auto;
+        transition: all 1s ease-in-out;
+     }
+     #video:hover {
+        transition: all 1s ease;
+        filter: drop-shadow(0 0 0.75rem black);
       }
 
     #pasta {
         width: 25%;
         height: 25%;
         padding-bottom: 1%;
+        transition: all 1s ease-in-out;
     }
+    #pasta:hover {
+        transition: all 1s ease;
+        filter: drop-shadow(0 0 0.75rem black);
+      }
 #speech {
    text-align: center;
    width: 90%;
@@ -327,13 +363,14 @@ body { padding-top: 60px; }
 }
 
 .image-magic .show-text:hover {
-    background-color: #fff;
+    transition: all 1s ease;
+    filter: drop-shadow(0 0 0.75rem black);
 }
 
 .image-magic .show-text {
-    background-color: #AA998F;
+    background-color: #C9BAB1;
     opacity: 1;
-    transition: 1s;
+    transition: all 1s ease-in-out;
 
 }
 #page-layout.imgbac {
@@ -377,10 +414,9 @@ background-size: cover;
 
  /* MOBILE WEBSITE UNDER CONSTRUCTION */
  @media (max-width: 480px) {
-     html {
+    html {
         overflow: hidden;
     }
-     
     #home {
         background-image: url("Mobile\ website.jpg");
         background-size: 100%;
@@ -402,8 +438,6 @@ background-size: cover;
     #home img {
         visibility: hidden;
     }
-
-
 
 }
  
@@ -477,4 +511,3 @@ background-size: cover;
     }
 
 }
-
