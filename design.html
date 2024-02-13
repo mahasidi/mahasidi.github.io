@@ -1,73 +1,162 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>"
+    />
     <title>Design</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a8ca9dd7b2.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css" />
+    <script
+      src="https://kit.fontawesome.com/a8ca9dd7b2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <header>
-    <nav>
-        <ul class="links">
-          <li><a href="index.html">HOME</a></li>
-          <li><a href="coding.html">CODING</a></li>
-          <li><a href="design.html">DESIGN</a></li>
-          <li id="last"><a href="community.html">COMMUNITY AND ADVOCACY</a></li>
-          <div class="social">
-          <li><a id="first" href="https://www.linkedin.com/in/mahasidi/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a id="first" href="https://www.instagram.com/mahaasidi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-          <a id="first" href="mailto: sidi.m@northeastern.edu" target="_blank"><i class="fa-regular fa-envelope"></i></i></a>
-          <a id="first" href="https://github.com/mahasidi" target="_blank"><i class="fa fa-github"></i></a></li></li>
-          </div>
-        </ul>
-    </nav>
-  </header>
-  <body>
-<section id="page-layout">
-    <h1>DESIGN PROJECTS</h1>
-    <div class="pages">
-        <figcaption class="heading-design">Self Reflection Photo Journal</figcaption>
-    <img id="cover" src="images/1st.png" alt="The cover of 'Navigating Religion In A New City' featuring the title and the sign of islam (moon
-    and star) conjoined with the shadow of a mosque.">
-    <img id="spread" src="images/2nd.png" alt="The left page features a monologue discussing first thoughts about religion upon my arrival to college.
-    The right page features a picture of ISBC.">
-    <img id="spread" src="images/3rd.png" alt="The left photo features the inside of the mosque. The right image is a photo of a shoe rack.">
-    <img id="spread" src="images/4th.png" alt="Top image features a messy desk and the bottom text discusses finding myself.">
-</div>
-    <div class="heading-right-design">
-        <p class="book-button"><a href="https://drive.google.com/file/d/1hhS0AyhpYH0_eaD0RMYw7Nq0RvFxFNom/view?usp=sharing" target="_blank">Access Full Journal</a></p>
-        <figcaption>I created a personal photo journal to document my journey of self-exploration during my first year of college and I used 
-            this as an outlet to remind myself of what's most meaningful to me. Amist the chaos and confusion of college life, 
-            this journal gave me an opportunity hit pause on life and truly reflect on my surroundings and how far I've come. All illustrations
-            were created using Adobe Illustrator, the page layout was organized using Adobe InDesign, and all photos were taken by me.
-          </figcaption>
+  <nav
+    class="navbar navbar-expand-lg navbar-light fixed-top"
+    style="background-color: #e9e2db"
+    expand="large"
+  >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto ml-5">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">home</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="design.html"
+            >design <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="coding.html">coding</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="community.html">community + advocacy</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <body class="project-body">
+    <section id="page-layout">
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="col-9">
+        <img
+          id="spread"
+          src="images/2nd.png"
+          alt="The left page features a monologue discussing first thoughts about religion upon my arrival to college.
+    The right page features a picture of ISBC."
+        />
+        <img
+          id="spread"
+          src="images/3rd.png"
+          alt="The left photo features the inside of the mosque. The right image is a photo of a shoe rack."
+        />
+        <img
+          id="spread"
+          src="images/4th.png"
+          alt="Top image features a messy desk and the bottom text discusses finding myself."
+        />
+      </div>
+      </div>
+      <div class="row">
+        <div class="col-2"></div>
+        <div class="heading-right-design col-8">
+          <h3>Self Reflection Photo Journal</h3>
+          <p>
+            I created a personal photo journal to document my journey of
+            self-exploration during my first year of college and I used this as
+            an outlet to remind myself of what's most meaningful to me. Amist
+            the chaos and confusion of college life, this journal gave me an
+            opportunity hit pause on life and truly reflect on my surroundings
+            and how far I've come. All illustrations were created using Adobe
+            Illustrator, the page layout was organized using Adobe InDesign, and
+            all photos were taken by me.
+          </p>
+          <a
+            class="book-button"
+            href="https://drive.google.com/file/d/1hhS0AyhpYH0_eaD0RMYw7Nq0RvFxFNom/view?usp=sharing"
+            target="_blank"
+            >Access Full Journal</a
+          >
         </div>
-        <div class="pages">
-            <figcaption class="heading-design">Imposter Syndrome Toolkit</figcaption>
-            <video id="video" autoplay muted loop controls>
-              <source src="images/app-walkthrough.mov" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <div class="col-1"></div>
+        <div class="col-4">
+          <div class="align">
+            <img
+          width="89.5%"
+          src="images/UI-14 (1) (1).jpg"
+          alt="A photo of the imposter syndrome toolkit app"
+        />
+            <div class="pt-3">
+              <h3 class="header">Imposter Syndrome Toolkit</h3>
+              <p>
+                For this project, I wanted to design an app that gave college
+                students easy access to various resources so they can reassure and
+                guide themselves through feelings of imposter syndrome. I took
+                inspiration from various meditation apps to enhance the user's
+                experience. My main design goals were to make everything legible,
+                clearly labeled, and calm. This app design was created using Figma.
+              </p>
+              <a
+            class="book-button"
+            href="https://drive.google.com/file/d/1cKfVvT9UulToGzfVCey-uWT7OyVYqYfD/view?usp=sharing"
+            target="_blank"
+            >Process Portfolio</a
+          >
+            </div>
           </div>
-        <div class="heading-right-design">
-            <p class="book-button"><a href="https://drive.google.com/file/d/1cKfVvT9UulToGzfVCey-uWT7OyVYqYfD/view?usp=sharing" target="_blank">Process Portfolio</a></p>
-            <figcaption>For this project, I wanted to design an app that gave college students easy access to various resources 
-              so they can reassure and guide themselves through feelings of imposter syndrome. I took inspiration from various meditation apps to enhance the user's experience. 
-              My main design goals were to make everything legible, clearly labeled, and calm. This app design was created using Figma.
-              </figcaption>
+        </div>
+        <div class="col-4">
+          <div class="align">
+            <img
+            width="100%"
+            src="images/mem hub 2.png"
+            alt="A photo of the memory hub app"
+          />
+            <div class="pt-3">
+              <h3 class="header">Memory Hub</h3>
+              <p>
+                While working on the Memory Hub, I aimed to make it easy for users, like college students, to casually scroll through photos from a chosen date or input a specific day, perhaps from a year ago today. Using Figma for a straightforward design, the interface provides a relaxed and user-friendly space to explore and revisit personal memories effortlessly. It's a simple and enjoyable way to navigate through your own camera roll.
+              </p>
             </div>
-            <div class="pages">
-                <figcaption class="heading-design">Pasta Recipe Gif</figcaption>
-                <img id="pasta" src="images/PASTA_RECIPE.gif" alt="A gif featuring a spicy pasta recipe.">
-            </div>
-            <div class="heading-right-design">
-                <figcaption>This project is my animated rendition of Buzzfeed's Tasty cooking videos. The illustrations of all the ingredients and 
-                    cookware was done in Adobe Illustrator, the frames were organized in Adobe InDesign, and the gif was put together 
-                    in Adobe Photoshop.
-                  </figcaption>
-                </div>
-</section>
-</body>
+          </div>
+        </div>
+        <div class="col-1"></div>
+      </div>
+    </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>s    
+  </body>
+  <footer class="bg-body-tertiary text-center text-lg-start">
+    <div class="text-center pt-4 p-3" style="background-color: #DBCDC6; font-size: 14px; ">
+      Designed & Coded with ❤️ by Maha Sidi.
+      <br>
+      UI/UX Designer | Advocate for the Unheard | Matcha-Powered College Student
+    </div>
+  </footer>
 </html>

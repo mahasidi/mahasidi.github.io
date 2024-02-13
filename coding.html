@@ -1,110 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="project">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👾</text></svg>"
+    />
     <title>Coding</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://kit.fontawesome.com/a8ca9dd7b2.js" crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css" />
+    <script
+      src="https://kit.fontawesome.com/a8ca9dd7b2.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
-  <header>
-    <nav>
-      <ul class="links">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="coding.html">CODING</a></li>
-        <li><a href="design.html">DESIGN</a></li>
-        <li id="last"><a href="community.html">COMMUNITY AND ADVOCACY</a></li>
-        <div class="social">
-        <li><a id="first" href="https://www.linkedin.com/in/mahasidi/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-        <a id="first" href="https://www.instagram.com/mahaasidi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a id="first" href="mailto: sidi.m@northeastern.edu" target="_blank"><i class="fa-regular fa-envelope"></i></i></a>
-        <a id="first" href="https://github.com/mahasidi" target="_blank"><i class="fa fa-github"></i></a></li></li>
-        </div>
+  <nav
+    class="navbar navbar-expand-lg navbar-light fixed-top"
+    style="background-color: #e9e2db"
+    expand="large"
+  >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#navbarText"
+      aria-controls="navbarText"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto ml-5">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="design.html">design</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="coding.html"
+            >coding<span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="community.html">community + advocacy</a>
+        </li>
       </ul>
-  </nav>
-  </header>
-  <body>
-<section id="page-layout">
-    <h1>CODING PROJECTS</h1>
-    <div class="images left">
-      <figcaption class="header">Photo Editor</figcaption>
-        <img id="pro" src="images/Img-Pro.gif"  alt="A screenshot of an image processor">
-        <div class="text">
-    <figcaption>An interactive GUI-based photo editing application built using Java. This program 
-      allows for image manipulation in the form of flipping, grayscale, brightening, blurring,
-      sharpening, and sepia.
-    </figcaption>
-  </div>
-  </div>
-  <div class="images right">
-    <figcaption class="header">Flood-It</figcaption>
-    <img id="flood" src="images/Flood_It.gif" alt="a video of flood-it being played">
-    <div class="text">
-  <figcaption>A rendition of the popular game "filler" built using Java. The objective of Flood-It is to continue to 
-    click cells in hopes of filling the board with a single color. The program is customizable, thus players have the option to 
-    change board size and number of available clicks.
-  </figcaption>
-  </div>
-  </div>
-<div class="images left">
-    <figcaption class="header-padding">Marble Solitaire</figcaption>
-      <img id="marble" src="images/marble-solitare.gif" alt="A video of marble solitaire being played">
-      <div class="text">
-  <figcaption>Traditionally, marble solitaire is a board game played by a single player.
-    The game involves moving pegs on a game board with holes. 
-    This text-based 
-    program takes in the type of solitaire (English, European, or Triangular) and/or
-     the dimension and/or the empty coordinate in
-    the form of command arguments.
-  </div>
-</div>
-<div class="images right cert">
-    <figcaption class="header-padding">Developer Certification</figcaption>
-    <a href="https://www.freecodecamp.org/certification/mahart/responsive-web-design" target="_blank"><embed src="images/responsive-web-design.png" alt="a certification" id="c"></a>
-  <div class="text">
-      <figcaption>FreeCodeCamp's web design course taught me intermediate HTML and CSS
-     skills including page layouts, embedding content, applied accessibility, animations,
-     positioning, typography, and much more. In addition, I built the following projects:
-     Survey Form, Tribute Page, Technical Documentation Page, Product Landing Page,
-     and Personal Portfolio Webpage and got all automated test suites to pass.
-  </figcaption>
-</div>
-</div>
-<div class="images center">
-  <figcaption class="header center">Rock, Paper, Scissors!</figcaption>
-  <a href="https://mahartjavascript.000webhostapp.com/" target="_blank"><img id="rock" src="images/rock-paper-scissors.gif" alt="a video of my rock-paper-scissors website."></a> 
-  <div class="text">
-<figcaption>An interactive game of rock paper scissors built using JavaScript, HTML, and CSS. 
-  This program gives the user the ability to play against a computer to ensure a fair game. The interface transforms
-  this dated hand game into a trendy, yet simple, online platform.
-</figcaption>
-</div>
-</div>
-<!-- <div class="request">
-    <h2>Would you like to see the code for any of the projects listed above?</h2>
-    <h4>Enter your information below to recieve a link to the private Github repo for those projects:</h4>
-    <form action="https://formsubmit.co/mahasidi14@gmail.com" method="POST">
-    <div id="check">
-        <input id="image-processor" value="image-processor" type="checkbox" name="Requested1">
-        <label>Image Processor
-      </label>
-        <input id="flood-it" value="flood-it" type="checkbox" name="Requested2">
-        <label>Flood-It
-      </label>
-        <input id="marble-solitare" value="marble-solitare" type="checkbox" name="Requested3">
-        <label>Marble Solitaire
-      </label>
     </div>
-    <label><br />First Name:</label>
-        <input required id="name" name="First Name" type="name" placeholder="ex: Muhsin">
-      <label>Last Name:</label>
-        <input id="name" name="Last Name" type="name" placeholder="ex: Sidi"><br /><br />
-      <label>Email:</label>
-        <input required id="email" name="Email" type="email" placeholder="ex: abc@example.com">
-        <br /><br />
-      <button class="sub-button" type="submit">SUBMIT</button>
-  </form>
-</div> -->
-</section>
-</body>
+  </nav>
+  <body class="project-body">
+    <div id="page-layout">
+      <div class="row d-flex justify-content-center">
+        <div class="col-3 mb-5">
+          <div class="align">
+            <img
+              id="pro"
+              src="images/Img-Pro.gif"
+              alt="A screenshot of an image processor"
+            />
+            <div class="text">
+              <h3>Photo Editor</h3>
+              <p>
+                An interactive GUI-based photo editing application built using
+                Java. This program allows for image manipulation in the form of
+                flipping, grayscale, brightening, blurring, sharpening, and
+                sepia.
+              </p>
+            </div>
+          </div>
+        </div>
+ <div class="col-1"></div> 
+        <div class="col-3">
+          <div class="align">
+            <a
+              href="https://www.freecodecamp.org/certification/mahart/responsive-web-design"
+              target="_blank"
+              ><embed
+                src="images/responsive-web-design.png"
+                alt="a certification"
+                class="c img-pad"
+            /></a>
+            <div class="text">
+              <h3 class="header mt-4">Developer Certification</h3>
+              <p>
+                FreeCodeCamp's web design course taught me intermediate HTML
+                and CSS skills including page layouts, embedding content,
+                applied accessibility, animations, positioning, and typography.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row d-flex justify-content-center mt-2 mb-3">
+        <div class="col-7">
+          <div class="align">
+            <img
+              id="web"
+              src="images/Stunner ss.png"
+              alt="A screenshot of stunner exchange website"
+            />
+            <div class="text">
+              <h3 class="header">Stunner Exchange</h3>
+              <p>
+                React-based e-commerce site with third-party clothing API,
+                buyer/seller profiles, authentication, saved items, and
+                personalized recommendations.
+              </p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="row d-flex justify-content-center mb-5">
+          <div class="col-3">
+            <div class="align">
+              <img
+                id="marble"
+                src="images/marble-solitare.gif"
+                alt="A video of marble solitaire being played"
+              />
+              <div class="text">
+                <h3 class="header">Marble Solitaire</h3>
+                <p>
+                  Traditionally, marble solitaire is a board game played by a
+                  single player. The game involves moving pegs on a game board
+                  with holes. This text-based program takes in the type of
+                  solitaire (English, European, or Triangular) and/or the
+                  dimension and/or the empty coordinate in the form of command
+                  arguments.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-1"></div> 
+          <div class="col-3">
+            <div class="align">
+              <img
+                class="img-pad"
+                id="flood"
+                src="images/Flood_It.gif"
+                alt="a video of flood-it being played"
+              />
+              <div class="text">
+                <h3 class="header">Flood-It</h3>
+                <p>
+                  A rendition of the popular game "filler" built using Java. The
+                  objective of Flood-It is to continue to click cells in hopes
+                  of filling the board with a single color. The program is
+                  customizable, thus players have the option to change board
+                  size and number of available clicks.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <footer class="bg-body-tertiary text-center text-lg-start">
+    <div
+      class="text-center pt-4 p-3"
+      style="background-color: #dbcdc6; font-size: 14px"
+    >
+      Designed & Coded with ❤️ by Maha Sidi.
+      <br />
+      UI/UX Designer | Advocate for the Unheard | Matcha-Powered College Student
+    </div>
+  </footer>
+</html>
