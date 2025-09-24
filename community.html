@@ -3,11 +3,11 @@
   <head>
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✊🏾</text></svg>"
     />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Community and Advocacy</title>
+    <title>Advocacy</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
@@ -23,7 +23,7 @@
   </head>
   <nav
     class="navbar navbar-expand-lg navbar-light fixed-top"
-    style="background-color: #e9e2db"
+    style="background-color: #f5f4f1"
     expand="large"
   >
     <button
@@ -43,26 +43,23 @@
           <a class="nav-link" href="index.html">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="design.html">Design</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="coding.html">Coding</a>
+          <a class="nav-link" href="design.html"
+            >Design</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="community.html"
-            >Advocacy<span class="sr-only">(current)</span></a
-          >
+          <a class="nav-link" href="community.html">Advocacy<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </div>
   </nav>
   <body class="project-body">
     <section id="page-layout">
-      <div class="row mb-5">
-        <div class="col-1"></div>
-        <div class="col-10">
-          <h3>Black Islamic Association</h3>
-          <p>
+      <div class="advocacy-container">
+        
+        <div class="advocacy-item stagger-1">
+          <div class="advocacy-number">01</div>
+          <h3 class="advocacy-title">Black Islamic Association</h3>
+          <p class="advocacy-description">
             BIA is an organization that is dedicated to providing a space for
             the underrepresented and often overlooked Black Muslim community. My
             fellow co-founders and I felt that it was important to provide this
@@ -70,21 +67,20 @@
             relatable support system on campus.
           </p>
           <a
-            class="book-button"
+            class="advocacy-link"
             href="https://www.instagram.com/blackislamicassociation/"
             target="_blank"
             >Visit BIA's Instagram</a
           >
         </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-1"></div>
-        <div class="col-10">
-          <h3>
+
+        <div class="advocacy-item stagger-2">
+          <div class="advocacy-number">02</div>
+          <h3 class="advocacy-title">
             Immigrant Justice: Fighting for Asylum Seekers through Research and
             Writing
           </h3>
-          <p>
+          <p class="advocacy-description">
             In a program led by the Northeastern University School of Law
             Immigrant Justice Clinic, I was able to educate myself on domestic
             law regarding immigration (specifically asylum) and directly aid an
@@ -93,47 +89,53 @@
             asylum seeker is unsafe in that country.
           </p>
           <a
-            class="book-button"
+            class="advocacy-link"
             href="https://law.northeastern.edu/experience/clinics/immigrant-justice/"
             target="_blank"
             >Learn More</a
           >
         </div>
-      </div>
-      <div class="row mb-5">
-        <div class="col-1"></div>
-        <div class="col-10">
-          <h3>PeaceJam Conference</h3>
-          <p>
+
+        <div class="advocacy-item stagger-3">
+          <div class="advocacy-number">03</div>
+          <h3 class="advocacy-title">PeaceJam Conference</h3>
+          <p class="advocacy-description">
             My team and I presented at the PeaceJam Southeastern conference in
             Tallahassee, Florida. Our goal for this presentation was to raise
             awareness about the refugee crisis globally. My first-hand research
             consisted of visiting the Stewart Detention Center in Lumpkin,
             Georgia. With the help of El Refugio (A Georgia-based organization
-            that provides support to individuals who’ve family members have been
+            that provides support to individuals who've family members have been
             detained), I was able to converse with men who were being detained
             and awaiting their trial. In the presentation, I was able to amplify
             their voices and call for action.
           </p>
           <a
-            class="book-button"
+            class="advocacy-link"
             href="https://thecenter.fsu.edu/service/peacejam"
             target="_blank"
             >Learn More</a
           >
         </div>
+
       </div>
     </section>
+
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <script>
+        // Animation on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const items = document.querySelectorAll('.advocacy-item');
+                items.forEach(item => {
+                    item.classList.add('fade-in');
+                });
+            }, 300);
+        });
+    </script>
      
   </body>
-   <footer class="bg-body-tertiary text-center text-lg-start">
-        <div class="text-center pt-4 p-3" style="background-color: #DBCDC6; font-size: 14px; ">
-          Designed & Coded with <span style="font-size: 16px">💌</span> by Maha Sidi
-          <br>
-          UI/UX Designer | Advocate for the Unheard | Matcha-Powered College Student
-        </div>
-      </footer>
 </html>

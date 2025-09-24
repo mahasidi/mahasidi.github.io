@@ -8,8 +8,6 @@ html {
   font-family: indivisible, sans-serif;
   font-style: normal;
   font-weight: 400;
-  /*minimize page and doesnt change anything*/
-  /*width: 200vh;*/
   overflow: scroll;
 }
 
@@ -18,13 +16,15 @@ html {
 }
 
 .project {
-  background-color: #e9e2db;
+  background-color: #f5f4f1;
 }
 
 .project-body {
-  margin-top: 120px; background-color: #e9e2db;
+  margin-top: 120px; 
+  background-color: #f5f4f1;
 }
 
+/* HOME STYLES WITH ANIMATIONS */
 #first {
   color: black;
   padding-left: 10px;
@@ -32,11 +32,22 @@ html {
 
 #home {
   display: inline-block;
-  background-image: url("images/large-background.gif");
-  /*3A5743;*/
+  background-image: url("images/Background-Design.png");
   margin: -8px;
   color: black;
 }
+
+.home-text {
+  margin-top: 4%;
+  margin-left: 10%;
+  margin-right: 500px;
+  position: relative;
+  top: 200px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeInHome 1s ease-out 0.5s forwards;
+}
+
 .home-text h1 {
   font-family: larken, sans-serif;
   font-weight: 300;
@@ -44,41 +55,7 @@ html {
   font-size: 44px;
 }
 
-#home p {
-  font-size: 16px;
-  line-height: 150%;
-  margin-top: -10px;
-}
-
-.home-text {
-  margin-top: 8%;
-  margin-left: 10%;
-  margin-right: 500px;
-  position: relative;
-  top: 200px;
-  letter-spacing: 1px;
-}
-
-.text-h {
-  width: 50%;
-}
-
-#home img {
-  transition: all 1s ease-in-out;
-  width: 40%;
-  height: 40%;
-  border-top-left-radius: 300px;
-  border-top-right-radius: 300px;
-  float: right;
-  position: relative;
-  bottom: 550px;
-  margin-top: 65px;
-  margin-bottom: -35%;
-  margin-right: 7%;
-  border: solid;
-}
-
-#home h2 {
+.home-text h2 {
   font-family: larken, sans-serif;
   font-weight: 300;
   font-style: normal;
@@ -87,13 +64,273 @@ html {
   padding-bottom: 40px;
 }
 
+#home p {
+  font-size: 16px;
+  line-height: 150%;
+  margin-top: -10px;
+}
+
+.text-h {
+  width: 50%;
+}
+
+#home img {
+  transition: all 1s ease-in-out;
+  width: 33%;
+  height: 33%;
+  border-top-left-radius: 300px;
+  border-top-right-radius: 300px;
+  float: right;
+  position: relative;
+  bottom: 450px;
+  margin-top: 40px;
+  margin-bottom: -25%;
+  margin-right: 7%;
+  border: solid;
+  opacity: 0;
+  animation: fadeInHome 1s ease-out 0.5s forwards;
+}
+
 #home img:hover {
   transition: all 1s ease-in-out;
   filter: drop-shadow(0 0 0.75rem black);
 }
 
+@keyframes fadeInHome {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MINIMAL PROJECTS GRID */
+.projects-minimal-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem 5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.project-minimal {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: 2.5rem;
+}
+
+.project-minimal:hover {
+  transform: translateY(-4px);
+}
+
+.project-minimal.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.project-image-minimal {
+  width: 100%;
+  height: 280px;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+  overflow: hidden;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.project-image-minimal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0);
+  transition: all 0.3s ease;
+}
+
+.project-minimal:hover .project-image-minimal::after {
+  background: rgba(0,0,0,0.1);
+}
+
+.project-image-minimal.living-archive {
+  background-image: url("images/Untitled\ presentation\ \(2\).jpg");
+}
+
+.project-image-minimal.journal {
+  background-image: url("images/2nd.png");
+  background-position: center 10%;
+}
+
+.project-image-minimal.imposter {
+  background-image: url("images/UI-14 (1) (1).jpg");
+  background-position: center 30%;
+}
+
+.project-image-minimal.spoiler {
+  background-image: url("images/Spoiler Alert.png");
+}
+
+.project-image-minimal.biographies {
+  background-image: url("images/page 6.png");
+  background-position: center 17%;
+}
+
+.project-image-minimal.radiance {
+  background-image: url("images/radiance.png");
+  background-position: center 17%;
+}
+
+.project-image-minimal.time {
+  background-image: url("images/Time.png");
+}
+
+.project-title-minimal {
+  font-family: larken, serif;
+  font-size: 1.75rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.project-type-minimal {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.project-details-minimal {
+  opacity: 0.4;
+  transform: translateY(0);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.project-minimal:hover .project-details-minimal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-description-minimal {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+
+.project-tools-minimal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tool-tag-minimal {
+  background: rgba(255,255,255,0.6);
+  color: #666;
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.orange {
+  background: rgba(255, 180, 123, 0.6);
+}
+
+/* ADVOCACY PAGE STYLES */
+.advocacy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+}
+
+.advocacy-item {
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.3s ease;
+}
+
+.advocacy-item:last-child {
+  border-bottom: none;
+}
+
+.advocacy-item.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.advocacy-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #999;
+  margin-bottom: 1rem;
+  letter-spacing: 0.1em;
+}
+
+.advocacy-title {
+  font-family: larken, serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.advocacy-description {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.advocacy-link {
+  color: #1a1a1a !important;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.advocacy-link:hover {
+  color: #666 !important;
+  text-decoration: none;
+}
+
+/* Animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.3s; }
+.stagger-3 { animation-delay: 0.5s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+
 #page-layout {
-  background-color: #e9e2db;
+  background-color: #f5f4f1;
 }
 
 .images.center {
@@ -156,6 +393,7 @@ html {
 .align {
   text-align: left;
 }
+
 #pro {
   width: 100%;
   padding-bottom: 10px;
@@ -220,6 +458,7 @@ html {
   margin-left: 5%;
   transition: all 1s ease-in-out;
 }
+
 .sub-button:hover {
   background: #aa998f;
   transition: all 1s ease;
@@ -238,7 +477,6 @@ html {
 }
 
 .heading-right-design {
-
   width: 60%;
   padding-top: 1%;
   padding-bottom: 3%;
@@ -257,8 +495,8 @@ html {
 
 .book-button {
     color: gray !important;
-
 }
+
 .book-button:hover {
   color: black !important;
 }
@@ -268,6 +506,7 @@ html {
   width: 250px;
   transition: all 1s ease-in-out;
 }
+
 #video:hover {
   transition: all 1s ease;
   filter: drop-shadow(0 0 0.75rem black);
@@ -279,10 +518,12 @@ html {
   padding-bottom: 1%;
   transition: all 1s ease-in-out;
 }
+
 #pasta:hover {
   transition: all 1s ease;
   filter: drop-shadow(0 0 0.75rem black);
 }
+
 #speech {
   text-align: center;
   width: 90%;
@@ -305,16 +546,50 @@ html {
 }
 
 .image-magic .show-text {
-  background-color: #c9bab1;
+  background-color: #f5f4f1;
   opacity: 1;
   transition: all 1s ease-in-out;
 }
+
 #page-layout.imgbac {
   background-image: url("images/candabackground.gif");
   background-size: cover;
 }
 
-/* HOME CHANGES */
+#page-layout {
+  background-color: #f5f4f1;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .projects-minimal-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 2rem 1rem;
+  }
+
+  .project-details-minimal {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .project-title-minimal {
+    font-size: 1.5rem;
+  }
+
+  .advocacy-container {
+    padding: 2rem 1rem;
+  }
+  
+  .advocacy-title {
+    font-size: 1.5rem;
+  }
+  
+  .advocacy-description {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 1015px) {
   .home-text {
     top: 0px;
@@ -330,7 +605,6 @@ html {
     width: auto;
   }
 
-
   #home img {
     width: 50%;
     height: 50%;
@@ -342,36 +616,9 @@ html {
     margin-bottom: 10%;
     padding: auto;
   }
+  
   #home {
     text-align: center;
-  }
-}
-
-/* MOBILE WEBSITE UNDER CONSTRUCTION */
-@media (max-width: 480px) {
-  html {
-    overflow: hidden;
-  }
-  #home {
-    background-image: url("images/Mobile\ website.jpg");
-    background-size: 100%;
-    margin-top: -25%;
-  }
-
-  .links {
-    visibility: hidden;
-  }
-
-  header {
-    visibility: hidden;
-  }
-
-  .home-text {
-    visibility: hidden;
-  }
-
-  #home img {
-    visibility: hidden;
   }
 }
 
@@ -393,12 +640,40 @@ html {
   .links li {
     margin-left: 20px;
   }
+  
   #page-layout {
     padding: 3%;
   }
 }
 
 @media (max-width: 480px) {
+  html {
+    overflow: hidden;
+  }
+  
+  #home {
+    background-image: url("images/Mobile\ website.jpg");
+    background-size: 100%;
+    margin-top: -25%;
+  }
+
+  .links {
+    visibility: hidden;
+  }
+
+  header {
+    visibility: hidden;
+  }
+
+  .home-text {
+    visibility: hidden;
+    margin-top: 35%;
+  }
+
+  #home img {
+    visibility: hidden;
+  }
+
   .links li {
     display: flex;
     padding: 0px;
@@ -406,11 +681,13 @@ html {
     margin-right: 0px;
     margin-left: -50px;
   }
+  
   #last {
     margin-right: 100px;
     padding: auto;
     margin-left: -50px;
   }
+  
   .social {
     position: relative;
     float: left;
@@ -420,6 +697,7 @@ html {
   header {
     position: absolute;
   }
+  
   #page-layout {
     padding: 7%;
   }
@@ -427,10 +705,6 @@ html {
   #imposter {
     width: 26%;
     height: 26%;
-  }
-
-  .home-text {
-    margin-top: 35%;
   }
 
   .book-button {
