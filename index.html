@@ -6,63 +6,247 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maha's Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/bup7uhq.css">
-    <script src="https://kit.fontawesome.com/a8ca9dd7b2.js" crossorigin="anonymous"></script>   
+    <script src="https://kit.fontawesome.com/a8ca9dd7b2.js" crossorigin="anonymous"></script>
+    <style>
+      html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f4f1;
+        font-family: indivisible, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      #og {
+        color: black;
+      }
+
+      #first {
+        color: black;
+        padding-left: 10px;
+      }
+
+      /* RESPONSIVE HOME SECTION */
+      #home {
+        min-height: 100vh;
+        background-image: url("images/Background-Design.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #f5f4f1;
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 5% 50px 5%;
+        gap: 3rem;
+        position: relative;
+      }
+
+      .home-text {
+        flex: 1;
+        max-width: 600px;
+        letter-spacing: 1px;
+        opacity: 0;
+        animation: fadeInHome 1s ease-out 0.5s forwards;
+        z-index: 2;
+      }
+
+      .home-text h2 {
+        font-family: larken, sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: clamp(28px, 5vw, 44px);
+        padding-bottom: 40px;
+        line-height: 1.3;
+      }
+
+      #home p {
+        font-size: clamp(14px, 2vw, 16px);
+        max-width: 450px;
+        line-height: 150%;
+        margin-top: -10px;
+      }
+
+      .text-h {
+        margin-bottom: 2rem;
+      }
+
+      #maha {
+        width: clamp(250px, 35vw, 450px);
+        height: auto;
+        border-top-left-radius: 300px;
+        border-top-right-radius: 300px;
+        border: solid;
+        flex-shrink: 0;
+        opacity: 0;
+        animation: fadeInHome 1s ease-out 0.5s forwards;
+        transition: all 1s ease-in-out;
+        z-index: 2;
+      }
+
+      #maha:hover {
+        transition: all 1s ease-in-out;
+        filter: drop-shadow(0 0 0.75rem black);
+      }
+
+      @keyframes fadeInHome {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* TABLET AND BELOW */
+      @media (max-width: 1024px) {
+        #home {
+          flex-direction: column;
+          text-align: center;
+          padding: 100px 5% 50px 5%;
+          justify-content: center;
+        }
+
+        .home-text {
+          max-width: 100%;
+          order: 2;
+        }
+
+        .home-text h2 {
+          padding-bottom: 30px;
+        }
+
+        #home p {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+        #maha {
+          order: 1;
+          width: clamp(200px, 50vw, 350px);
+          margin-bottom: 2rem;
+        }
+      }
+
+      /* MOBILE */
+      @media (max-width: 768px) {
+        #home {
+          padding: 80px 5% 40px 5%;
+          min-height: 100vh;
+        }
+
+        .home-text h2 {
+          font-size: clamp(24px, 6vw, 32px);
+          padding-bottom: 20px;
+        }
+
+        #home p {
+          font-size: 15px;
+        }
+
+        #maha {
+          width: clamp(180px, 60vw, 280px);
+        }
+
+        .navbar-collapse.ml-5 {
+          margin-left: 0 !important;
+        }
+
+        .navbar-nav.ml-5 {
+          margin-left: 0 !important;
+        }
+      }
+
+      /* VERY SMALL MOBILE */
+      @media (max-width: 480px) {
+        #home {
+          padding: 70px 4% 30px 4%;
+        }
+
+        .home-text h2 {
+          font-size: 22px;
+        }
+
+        #home p {
+          font-size: 14px;
+        }
+
+        #maha {
+          width: 70vw;
+          max-width: 250px;
+        }
+
+        #first {
+          padding-left: 8px;
+        }
+      }
+
+      /* LARGE SCREENS */
+      @media (min-width: 1400px) {
+        #home {
+          padding: 100px 10% 50px 10%;
+        }
+      }
+    </style>   
   </head>
-  <nav
-  class="navbar navbar-expand-lg navbar-light fixed-top"
-  style="background-color: #f5f4f1"
-  expand="large"
->
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-toggle="collapse"
-    data-target="#navbarText"
-    aria-controls="navbarText"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse ml-5" id="navbarText">
-    <ul class="navbar-nav mr-auto ml-5">
-      <li class="nav-item active">
-        <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="design.html"
-          >Design</a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="community.html">Advocacy</a>
-      </li>
-    </ul>
-  </div>
-</nav>
-      <body>
-        <section id="home">
-          <div class="home-text">
-            <h2>Crafting solutions through design, advocacy, and community engagement</h2>
-          <div class="text-h">
-          <p>Hi, I'm <b>Maha Sidi</b>, a M.S. Human-Computer Interaction student at Georgia Institute of Technology. 
-          </p>
-          <p>I love creating beautiful and accessible designs using a thoughtful
-            design process and showcasing my ideas through the use of programming languages.</p>
-            <p>Let's stay in touch!</p>
-          </div>
-              <a id="og" href="https://www.linkedin.com/in/mahasidi/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-            <a id="first" href="https://www.instagram.com/mahaasidi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a id="first" href="mailto: msidi3@gatech.edu" target="_blank"><i class="fa-regular fa-envelope"></i></a>
-            <a id="first" href="https://github.com/mahasidi" target="_blank"><i class="fa fa-github"></i></a>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #f5f4f1">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ml-5" id="navbarText">
+        <ul class="navbar-nav mr-auto ml-5">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="design.html">Design</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="community.html">Advocacy</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <section id="home">
+      <div class="home-text">
+        <h2>Crafting solutions through design, advocacy, and community engagement</h2>
+        <div class="text-h">
+          <p>Hi, I'm <b>Maha Sidi</b>, a M.S. Human-Computer Interaction student at Georgia Institute of Technology.</p>
+          <p>I love creating beautiful and accessible designs using a thoughtful design process and showcasing my ideas through the use of programming languages.</p>
+          <p>Let's stay in touch!</p>
         </div>
-          <img id="maha" src="images/Maha.JPG" alt="A photo of Maha Sidi looking off to
-          the side.">
-        </section>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-      </body>
+        <a id="og" href="https://www.linkedin.com/in/mahasidi/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a id="first" href="https://www.instagram.com/mahaasidi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a id="first" href="mailto: msidi3@gatech.edu" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+        <a id="first" href="https://github.com/mahasidi" target="_blank"><i class="fa fa-github"></i></a>
+      </div>
+      <img id="maha" src="images/Maha.JPG" alt="A photo of Maha Sidi looking off to the side.">
+    </section>
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
 </html>
