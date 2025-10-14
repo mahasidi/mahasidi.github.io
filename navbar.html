@@ -1,0 +1,186 @@
+<style>
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        z-index: 1000;
+        background: rgba(245, 244, 241, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+
+    .navbar-container {
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .navbar-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        position: fixed;
+        top: 1rem;
+        left: 1.5rem;
+        z-index: 1002;
+        color: #333;
+    }
+
+    .navbar-menu {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .navbar-menu li {
+        margin: 0;
+    }
+
+    .navbar-menu a {
+        text-decoration: none;
+        color: #333;
+        font-family: futura-pt, sans-serif;
+        font-size: 0.75rem;
+        font-weight: 400;
+        letter-spacing: 1.5px;
+        transition: opacity 0.3s ease;
+        text-transform: uppercase;
+    }
+
+    .navbar-menu a:hover {
+        opacity: 0.5;
+    }
+
+    .navbar-menu a.active {
+        font-weight: 600;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+        .navbar-toggle {
+            display: block;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            height: 100vh;
+            width: 70%;
+            max-width: 300px;
+            background: rgba(245, 244, 241, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            transition: left 0.3s ease;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-container.active {
+            left: 0;
+        }
+
+        .navbar-menu {
+            flex-direction: column;
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .navbar-menu a {
+            font-size: 0.9rem;
+        }
+
+        .navbar.menu-open {
+            background: transparent;
+            backdrop-filter: none;
+        }
+    }
+
+    .navbar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .navbar-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+</style>
+
+<div class="navbar-overlay" id="navbarOverlay"></div>
+
+<nav class="navbar" id="navbar">
+    <button class="navbar-toggle" id="navbarToggle" aria-label="Toggle navigation">
+        <span id="toggleIcon">☰</span>
+    </button>
+    <div class="navbar-container" id="navbarMenu">
+        <ul class="navbar-menu">
+            <li><a href="index.html" data-page="index">Home</a></li>
+            <li><a href="design.html" data-page="design">Design</a></li>
+            <li><a href="community.html" data-page="community">Advocacy</a></li>
+        </ul>
+    </div>
+</nav>
+
+<script>
+    (function() {
+        const navbarToggle = document.getElementById('navbarToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+        const navbarOverlay = document.getElementById('navbarOverlay');
+        const toggleIcon = document.getElementById('toggleIcon');
+        const navbar = document.getElementById('navbar');
+
+        if (!navbarToggle || !navbarMenu || !navbarOverlay || !toggleIcon || !navbar) {
+            console.error('Navbar elements not found');
+            return;
+        }
+
+        function toggleMenu() {
+            navbarMenu.classList.toggle('active');
+            navbarOverlay.classList.toggle('active');
+            navbar.classList.toggle('menu-open');
+            toggleIcon.textContent = navbarMenu.classList.contains('active') ? '✕' : '☰';
+        }
+
+        navbarToggle.addEventListener('click', toggleMenu);
+        navbarOverlay.addEventListener('click', toggleMenu);
+
+        document.querySelectorAll('.navbar-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+                navbarOverlay.classList.remove('active');
+                navbar.classList.remove('menu-open');
+                toggleIcon.textContent = '☰';
+            });
+        });
+
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.navbar-menu a').forEach(link => {
+            const linkPage = link.getAttribute('data-page') + '.html';
+            if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
+                link.classList.add('active');
+            }
+        });
+    })();
+</script>

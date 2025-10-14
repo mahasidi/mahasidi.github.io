@@ -4,22 +4,163 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imposter Syndrome Toolkit - UX Case Study</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css" />
     <style>
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.75rem 0 !important;
+            z-index: 1000;
+            background: rgba(245, 244, 241, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-toggle {
+            display: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            margin: 0;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: #333;
+            font-family: futura-pt, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .navbar-menu a:hover {
+            opacity: 0.5;
+        }
+
+        .navbar-menu a.active {
+            font-weight: 600;
+        }
+
+        .navbar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .navbar-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                background: transparent;
+                backdrop-filter: none;
+            }
+
+            .navbar-toggle {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1.5rem;
+                z-index: 1002;
+                background: rgba(245, 244, 241, 0.95);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                border: none;
+                padding: 0.6rem 0.8rem;
+                border-radius: 12px;
+                font-size: 1.3rem;
+                color: #333;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .navbar-container {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(245, 244, 241, 0.98);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-container.active {
+                left: 0;
+            }
+
+            .navbar-menu {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+
+            .navbar-menu a {
+                font-size: 0.9rem;
+            }
+        }
+
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             background-color: #f5f4f1;
             color: #1a1a1a;
             line-height: 1.7;
             overflow-x: hidden;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        body.project-body {
+            margin-top: 0 !important;
         }
 
         .case-study-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
+            padding-top: 70px;
         }
 
         .back-button {
@@ -44,7 +185,6 @@
             font-size: 1rem;
         }
 
-        /* Hero - Clean and Editorial */
         .hero-title {
             font-family: larken, serif;
             font-size: 3rem;
@@ -62,7 +202,6 @@
             margin-bottom: 60px;
         }
 
-        /* Project Meta - Refined */
         .project-meta {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -89,7 +228,6 @@
             line-height: 1.4;
         }
 
-        /* Statistics - Editorial Treatment */
         .stats-section {
             text-align: center;
             margin: 120px 0;
@@ -119,7 +257,6 @@
             font-style: italic;
         }
 
-        /* Section Headers - Editorial Style */
         .section-title {
             font-family: larken, serif;
             font-size: 2.2rem;
@@ -129,7 +266,6 @@
             letter-spacing: -0.01em;
         }
 
-        /* Editorial Story Layout */
         .story-section {
             margin: 100px auto 140px auto;
             max-width: 800px;
@@ -170,7 +306,6 @@
             font-weight: 400;
         }
 
-        /* Research Findings - Minimal Cards */
         .findings-title {
             font-size: 1.2rem;
             font-weight: 400;
@@ -224,7 +359,6 @@
             font-weight: 300;
         }
 
-        /* Design Evolution - Editorial Layout */
         .evolution-section {
             margin: 140px 0;
         }
@@ -282,7 +416,6 @@
             font-weight: 300;
         }
 
-        /* Insight Box - Minimal */
         .insight-box {
             background: #fafaf9;
             border-left: 3px solid #d97706;
@@ -305,7 +438,6 @@
             font-weight: 300;
         }
 
-        /* Refined Solution */
         .solution-highlight {
             background: #f0fdf4;
             border-left: 3px solid #16a34a;
@@ -331,7 +463,6 @@
             font-style: italic;
         }
 
-        /* Features Grid - Refined */
         .features-title {
             font-size: 1.4rem;
             font-weight: 400;
@@ -401,7 +532,6 @@
             font-weight: 300;
         }
 
-        /* Impact Section */
         .impact-section {
             margin: 140px 0;
             padding: 60px 0;
@@ -447,7 +577,6 @@
             font-weight: 300;
         }
 
-        /* CTA - Minimal */
         .prototype-cta {
             background: #1a1a1a;
             padding: 60px 40px;
@@ -490,7 +619,6 @@
             transform: translateY(-1px);
         }
 
-        /* Fade-in Animation */
         .case-study-container {
             opacity: 0;
             transform: translateY(30px);
@@ -502,7 +630,6 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.2rem;
@@ -519,6 +646,7 @@
 
             .case-study-container {
                 padding: 1.5rem;
+                padding-top: 80px;
             }
 
             .big-stat {
@@ -534,43 +662,22 @@
 </head>
 
 <body>
-    <nav
-    class="navbar navbar-expand-lg navbar-light fixed-top"
-    style="background-color: #f5f4f1"
-    expand="large"
-  >
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarText"
-      aria-controls="navbarText"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse ml-5" id="navbarText">
-      <ul class="navbar-nav mr-auto ml-5">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">Home</a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="design.html"
-            >Design <span class="sr-only">(current)</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="community.html">Advocacy</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-    <div class="case-study-container" style="margin-top: 100px;">
-        <!-- Back Button -->
+    <!-- Navbar -->
+    <div class="navbar-overlay" id="navbarOverlay"></div>
+    <nav class="navbar" id="navbar">
+        <button class="navbar-toggle" id="navbarToggle">☰</button>
+        <div class="navbar-container" id="navbarMenu">
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-page="index">Home</a></li>
+                <li><a href="design.html" data-page="design" class="active">Design</a></li>
+                <li><a href="community.html" data-page="community">Advocacy</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study-container">
         <a href="design.html" class="back-button">Back to Projects</a>
 
-        <!-- Hero Section -->
         <div style="text-align: center; margin-bottom: 60px;">
             <h1 class="hero-title">Imposter Syndrome Toolkit</h1>
             <p class="hero-subtitle">Process Portfolio</p>
@@ -595,14 +702,12 @@
             </div>
         </div>
 
-        <!-- Statistics -->
         <div class="stats-section">
             <div class="big-stat">1 in 5</div>
             <div class="stat-description">college students experience imposter syndrome</div>
             <div class="stat-source">Brigham Young University, 2019</div>
         </div>
 
-        <!-- Story Section - Editorial Layout -->
         <div class="story-section">
             <p class="story-opener">Picture a freshman walking into their first computer science lecture. They sit down, pull out their laptop, and as the professor begins explaining algorithms, a familiar wave of doubt washes over them.</p>
             
@@ -613,7 +718,6 @@
             <p class="story-conclusion">That freshman was me. And it turns out, I wasn't alone.</p>
         </div>
 
-        <!-- Research Section -->
         <h2 class="section-title">Research & Discovery</h2>
 
         <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">Through user interviews, literature review, and competitive analysis, I sought to understand how college students navigate feelings of inadequacy and self-doubt.</p>
@@ -633,7 +737,6 @@
             </div>
         </div>
 
-        <!-- Research Findings -->
         <h3 class="findings-title">Key Findings</h3>
         <div class="findings-grid">
             <div class="finding-item">
@@ -650,7 +753,6 @@
             </div>
         </div>
 
-        <!-- Design Evolution -->
         <div class="evolution-section">
             <h2 class="section-title">Design Evolution</h2>
 
@@ -678,7 +780,6 @@
                 <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin: 40px 0; font-weight: 300;">User testing revealed that individuals wanted a hub full of resources to guide them through their emotions rather than just social connections. Instead of a professional or sterile atmosphere, the app should focus on softness and make users feel comforted. This feedback was crucial in pivoting from a social approach to a personal resource toolkit.</p>
             </div>
 
-            <!-- Low-Fidelity Wireframes -->
             <div class="iteration-container">
                 <h3 class="iteration-title">Low-Fidelity Exploration</h3>
                 <p class="iteration-description">Early wireframes exploring the toolkit concept with basic mood tracking, resource access, and user-friendly interactions.</p>
@@ -697,16 +798,13 @@
             </div>
         </div>
 
-        <!-- Refined Solution -->
         <div class="solution-highlight">
             <h2>Refined Problem Statement</h2>
             <p>As a college student, I want to have easy access to various resources so I can reassure and guide myself through feelings of imposter syndrome.</p>
         </div>
 
-        <!-- Final Design -->
         <h2 class="section-title">Final Solution</h2>
 
-        <!-- Design Philosophy -->
         <div class="iteration-container">
             <h3 class="iteration-title">Design Philosophy</h3>
             <p class="iteration-description">Taking inspiration from meditation apps, I focused on making everything legible, clearly labeled, and calm. Since users are already overwhelmed, the design needed to provide comfort rather than add stress.</p>
@@ -724,7 +822,6 @@
             </div>
         </div>
 
-        <!-- Features Grid -->
         <h3 class="features-title">Core Features</h3>
         <div class="features-grid">
             <div class="feature-card">
@@ -759,7 +856,6 @@
             </div>
         </div>
 
-        <!-- Impact & Learnings -->
         <div class="impact-section">
             <h2 class="impact-title">Impact & Key Learnings</h2>
             
@@ -779,7 +875,6 @@
             </div>
         </div>
 
-        <!-- Prototype CTA -->
         <div class="prototype-cta">
             <h2 class="cta-title">Ready to Explore?</h2>
             <p class="cta-description">See the complete interactive prototype and design process</p>
@@ -787,21 +882,40 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
-
     <script>
-        // Animation on load - Fixed version
+        // Navbar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('navbarToggle');
+            const menu = document.getElementById('navbarMenu');
+            const overlay = document.getElementById('navbarOverlay');
+
+            toggle.addEventListener('click', function() {
+                menu.classList.toggle('active');
+                overlay.classList.toggle('active');
+                this.textContent = menu.classList.contains('active') ? '✕' : '☰';
+            });
+
+            overlay.addEventListener('click', function() {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                toggle.textContent = '☰';
+            });
+
+            document.querySelectorAll('.navbar-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    toggle.textContent = '☰';
+                });
+            });
+        });
+
+        // Animation on load
         window.addEventListener('load', () => {
-            console.log('Page loaded, starting animation...');
             setTimeout(() => {
                 const container = document.querySelector('.case-study-container');
                 if (container) {
-                    console.log('Found container, adding fade-in...');
                     container.classList.add('fade-in');
-                } else {
-                    console.log('Container not found');
                 }
             }, 300);
         });
