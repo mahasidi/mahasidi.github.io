@@ -63,24 +63,6 @@
             font-weight: 600;
         }
 
-        .navbar-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .navbar-overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
         @media (max-width: 768px) {
             .navbar {
                 background: transparent;
@@ -95,7 +77,6 @@
                 z-index: 1002;
                 background: rgba(245, 244, 241, 0.95);
                 backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
                 border: none;
                 padding: 0.6rem 0.8rem;
                 border-radius: 12px;
@@ -114,7 +95,6 @@
                 max-width: 300px;
                 background: rgba(245, 244, 241, 0.98);
                 backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
@@ -145,9 +125,10 @@
         }
 
         .case-study-container {
-            max-width: 1000px;
+            max-width: 1070px;
             margin: 0 auto;
             padding: 2rem;
+
         }
 
         .back-button {
@@ -172,7 +153,6 @@
             font-size: 1rem;
         }
 
-        /* Hero - Clean and Editorial */
         .hero-title {
             font-family: larken, serif;
             font-size: 3rem;
@@ -190,15 +170,14 @@
             margin-bottom: 60px;
         }
 
-        /* Project Meta - Refined */
         .project-meta {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin: 60px 0 100px 0;
             padding: 40px 0;
-            border-top: 1px solid rgba(139,115,85,0.2);
-            border-bottom: 1px solid rgba(139,115,85,0.2);
+            border-top: 1px solid rgba(26,26,26,0.08);
+            border-bottom: 1px solid rgba(26,26,26,0.08);
         }
 
         .meta-item h3 {
@@ -217,7 +196,6 @@
             line-height: 1.4;
         }
 
-        /* Statistics - Editorial Treatment */
         .stats-section {
             text-align: center;
             margin: 120px 0;
@@ -247,7 +225,6 @@
             font-style: italic;
         }
 
-        /* Section Headers - Editorial Style */
         .section-title {
             font-family: larken, serif;
             font-size: 2.2rem;
@@ -257,7 +234,6 @@
             letter-spacing: -0.01em;
         }
 
-        /* Editorial Story Layout */
         .story-section {
             margin: 100px auto 140px auto;
             max-width: 800px;
@@ -280,16 +256,6 @@
             line-height: 1.7;
         }
 
-        .pull-quote {
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #4b5563;
-            text-align: center;
-            margin: 60px 0;
-            line-height: 1.4;
-            letter-spacing: -0.01em;
-        }
-
         .story-conclusion {
             font-size: 1rem;
             color: #374151;
@@ -298,7 +264,6 @@
             font-weight: 400;
         }
 
-        /* Research Findings - Minimal Cards */
         .findings-title {
             font-size: 1.2rem;
             font-weight: 400;
@@ -350,11 +315,6 @@
             color: #4b5563;
             line-height: 1.7;
             font-weight: 300;
-        }
-
-        /* Design Evolution - Editorial Layout */
-        .evolution-section {
-            margin: 140px 0;
         }
 
         .iteration-container {
@@ -418,7 +378,6 @@
             border: 1px solid #e5e1db;
         }
 
-        /* Insight Box - Minimal */
         .insight-box {
             background: #fafaf9;
             border-left: 3px solid #d97706;
@@ -441,7 +400,6 @@
             font-weight: 300;
         }
 
-        /* Refined Solution */
         .solution-highlight {
             background: #f0fdf4;
             border-left: 3px solid #16a34a;
@@ -467,34 +425,6 @@
             font-style: italic;
         }
 
-        /* Features Grid - Refined */
-        .features-title {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 60px;
-            color: #1a1a1a;
-            position: relative;
-            padding-bottom: 8px;
-        }
-
-        .features-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 1px;
-            background: #8b7355;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 32px;
-            margin: 60px 0 120px 0;
-        }
-
-        /* Special styling for 10 pillars to show in 2 rows of 5 */
         .pillars-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -522,24 +452,6 @@
         .pillars-grid .feature-description {
             font-size: 0.8rem;
             line-height: 1.5;
-        }
-
-        @media (max-width: 1200px) {
-            .pillars-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .pillars-grid,
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pillars-grid .feature-card {
-                min-height: auto;
-                padding: 28px 20px;
-            }
         }
 
         .feature-card {
@@ -585,7 +497,68 @@
             font-weight: 300;
         }
 
-        /* Impact Section */
+        /* Step-by-step flow */
+        .step-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 20px 16px;
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #8b7355;
+            color: white;
+            margin: 0 auto 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .step-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .step-description {
+            font-size: 0.8rem;
+            color: #6b7280;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        /* Example question cards */
+        .example-card {
+            background: #fafaf9;
+            border-radius: 8px;
+            padding: 24px;
+            margin: 30px 0;
+            border: 1px solid rgba(139,115,85,0.15);
+        }
+
+        .example-card-visual {
+            margin-bottom: 20px;
+        }
+
+        .example-rationale {
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.6;
+            font-weight: 300;
+            font-style: italic;
+        }
+
         .impact-section {
             margin: 140px 0;
             padding: 60px 0;
@@ -631,7 +604,6 @@
             font-weight: 300;
         }
 
-        /* Survey Chart Styles */
         .survey-chart {
             background: #fafaf9;
             padding: 40px;
@@ -674,7 +646,6 @@
             font-weight: 500;
         }
 
-        /* Fade-in Animation */
         .case-study-container {
             opacity: 0;
             transform: translateY(30px);
@@ -686,7 +657,12 @@
             transform: translateY(0);
         }
 
-        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .pillars-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
             .hero-title {
                 font-size: 2.2rem;
@@ -709,38 +685,47 @@
                 font-size: 3.5rem;
             }
 
-            .findings-grid,
-            .features-grid {
+            .findings-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pillars-grid .feature-card {
+                min-height: auto;
+                padding: 28px 20px;
             }
 
             .chart-label {
                 width: 120px;
                 font-size: 0.8rem;
             }
+
+            .step-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar-overlay" id="navbarOverlay"></div>
     <nav class="navbar" id="navbar">
         <button class="navbar-toggle" id="navbarToggle">☰</button>
         <div class="navbar-container" id="navbarMenu">
             <ul class="navbar-menu">
-                <li><a href="index.html" data-page="index">Home</a></li>
-                <li><a href="design.html" data-page="design" class="active">Design</a></li>
-                <li><a href="community.html" data-page="community">Advocacy</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design.html" class="active">Design</a></li>
+                <li><a href="community.html">Advocacy</a></li>
             </ul>
         </div>
     </nav>
 
-    <div class="case-study-container" style="margin-top: 100px;">
-        <!-- Back Button -->
+    <div class="case-study-container" style="margin-top: 100px; padding-top: 0;">
         <a href="design.html" class="back-button">Back to Projects</a>
 
-        <!-- Hero Section -->
+        <!-- Hero -->
         <div style="text-align: center; margin-bottom: 60px;">
             <h1 class="hero-title">The Living Archive</h1>
             <p class="hero-subtitle">Preserving Stories That Shape Us</p>
@@ -749,7 +734,7 @@
         <div class="project-meta">
             <div class="meta-item">
                 <h3>Project Type</h3>
-                <p>UX Research & Product Design</p>
+                <p>Physical Product & Interaction Design</p>
             </div>
             <div class="meta-item">
                 <h3>Timeline</h3>
@@ -757,7 +742,7 @@
             </div>
             <div class="meta-item">
                 <h3>Role</h3>
-                <p>UX Researcher & Product Designer</p>
+                <p>UX Designer & Researcher</p>
             </div>
             <div class="meta-item">
                 <h3>Focus</h3>
@@ -772,7 +757,7 @@
             <div class="stat-source">Primary Research, 2025 • 45 respondents</div>
         </div>
 
-        <!-- Story Section -->
+        <!-- Story -->
         <div class="story-section">
             <p class="story-opener">Picture a first-generation child sitting at the dinner table, wanting to learn about their family's journey to America, but not knowing how to start the conversation. The questions feel too big, too personal, too complicated.</p>
             
@@ -788,7 +773,7 @@
             <p>Territory Maps & Mind Maps</p>
             <img src="images/Territory map 1.png" alt="Territory map showing preservation of lineage and cultural heritage" style="max-width: 45%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
             <img src="images/Territory map 2.png" alt="Territory map exploring immigration journies" style="max-width: 50%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-        <small></br>Early exploration of the problem space and solution opportunities</small>
+            <small><br>Early exploration of the problem space and solution opportunities</small>
         </div>
 
         <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.8; margin-bottom: 60px; font-weight: 300;">First-generation children often grow up disconnected from their heritage due to language barriers, migration trauma, and the absence of structured ways to facilitate meaningful conversations with their families about cultural history.</p>
@@ -808,12 +793,11 @@
             </div>
         </div>
 
-        <!-- Research & Discovery Section -->
+        <!-- Research & Discovery -->
         <h2 class="section-title">Research & Discovery</h2>
 
         <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">I conducted comprehensive research using mixed methods to understand the barriers preventing intergenerational storytelling in immigrant families and identify opportunities for design intervention.</p>
 
-        <!-- Research Methods -->
         <h3 class="iteration-title">Research Methods</h3>
         <div class="findings-grid">
             <div class="finding-item">
@@ -821,7 +805,7 @@
                 <p>Quantitative data collection targeting first-generation children and immigrant parents to understand current communication patterns and cultural preservation practices.</p>
             </div>
             <div class="finding-item">
-                <h4>In-Depth Interviews</h4>
+                <h4>In-Depth Interviews (n=6)</h4>
                 <p>Qualitative interviews with immigrant families to explore the emotional and cultural barriers to sharing family history and migration stories.</p>
             </div>
             <div class="finding-item">
@@ -834,8 +818,8 @@
             </div>
         </div>
 
-        <!-- Survey Results -->
-        <h3 class="findings-title">Survey Insights</h3>
+        <!-- Survey Insights -->
+        <h3 class="iteration-title">Survey Insights</h3>
         
         <div class="survey-chart">
             <h4 class="chart-title">Comfort Level Asking Parents About Their Past</h4>
@@ -869,8 +853,10 @@
             </div>
         </div>
 
-        <!-- Key Research Findings -->
-        <h3 class="findings-title">Key Research Findings</h3>
+        <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin: 40px 0 60px 0; font-weight: 300;">These findings reveal that while 62% feel at least somewhat comfortable asking questions, only 31% have these conversations often. Comfort alone doesn't drive action, validating the need for structured conversation prompts.</p>
+
+        <!-- Interview Insights -->
+        <h3 class="iteration-title">Interview Insights</h3>
         <div class="findings-grid">
             <div class="finding-item">
                 <h4>Oral Storytelling Dependency</h4>
@@ -899,7 +885,7 @@
         </div>
 
         <!-- Competitive Analysis -->
-        <h3 class="findings-title">Competitive Analysis</h3>
+        <h3 class="iteration-title">Competitive Analysis</h3>
         <div class="findings-grid">
             <div class="finding-item">
                 <h4>StoryCorps</h4>
@@ -915,59 +901,121 @@
             </div>
         </div>
 
+        <!-- Research Synthesis -->
+        <h2 class="section-title">Research Synthesis</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">Through my research, three interconnected barriers emerged: families lack conversation frameworks, cultural trauma creates emotional hesitancy, and there's no easy way to document stories once they're shared. What became clear was that families desperately want to preserve their stories but don't know how to start.</p>
+
+        <div class="findings-grid">
+            <div class="finding-item">
+                <h4>The Desire vs. Action Gap</h4>
+                <p>While 38% of respondents felt uncomfortable asking parents about their past, the majority expressed interest in a tool to facilitate these conversations. The barrier wasn't lack of interest; it was intimidation. Families needed structured prompts that made starting sensitive conversations feel less daunting.</p>
+            </div>
+            <div class="finding-item">
+                <h4>Physical Experience, Permanent Record</h4>
+                <p style="font-style: italic; margin-bottom: 12px;">"A book would be great, but I wouldn't want it to just be documented and forgotten. I'd love for stories to be revisited, maybe at family gatherings, making it more of a community project." — Interview Participant</p>
+                <p>This sentiment echoed across interviews. Participants wanted physical, communal experiences paired with permanent preservation. The solution needed to honor both.</p>
+            </div>
+            <div class="finding-item">
+                <h4>Translation Isn't Transparent</h4>
+                <p style="font-style: italic; margin-bottom: 12px;">"Somali isn't an easy language to translate because it tends to be more descriptive. Certain idioms, phrases, and entire stories don't carry the same meaning when translated." — Interview Participant</p>
+                <p>Participants consistently described how cultural meaning gets lost in translation. This insight shaped my decision to capture stories in their original languages rather than forcing English documentation.</p>
+            </div>
+        </div>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin: 60px 0; font-weight: 300;">These insights pointed to my design opportunity: create a tool that structures conversations while honoring cultural sensitivity and ensures stories aren't lost to time.</p>
+
         <!-- Problem Statement -->
         <div class="solution-highlight">
             <h2>How Might We...</h2>
-            <p>Help first-generation children and their parents facilitate meaningful conversations to obtain and preserve family history while honoring cultural heritage and trauma-informed sensitivity?</p>
+            <p>Help first-generation children and their parents facilitate meaningful conversations to obtain and preserve family history?</p>
         </div>
 
         <!-- Solution -->
         <h2 class="section-title">Solution: The Living Archive</h2>
 
-        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">An interactive card game paired with a mobile app that helps first-generation children spark conversations with their families. Each card contains carefully crafted questions designed to encourage storytelling, paired with NFC technology that seamlessly records these precious moments.</p>
-        <h3 class="iteration-title">How It Works</h3>
-        <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">The cards facilitate conversation while the app preserves it. Physical cards provide structured prompts and create shared tactile experiences, while the mobile app captures, transcribes, and organizes these stories into a permanent family archive.</p>
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">An interactive card game paired with a mobile app that helps first-generation children spark conversations with their families. Each card contains carefully crafted questions designed to encourage storytelling, paired with NFC technology that seamlessly records these precious moments.</p>
 
+        <h3 class="findings-title" style="margin-bottom: 20px;">How It Works</h3>
+        <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">The cards facilitate conversation while the app preserves it. Physical cards provide structured prompts and create shared tactile experiences, while the mobile app captures, transcribes, and organizes these stories into a permanent family archive.</p>
+
+        <!-- User Journey Steps -->
+        <div class="step-container">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-title">Setup</div>
+                <div class="step-description">Scan QR code on card deck to link with app</div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-title">Session Start</div>
+                <div class="step-description">Identify speakers for the conversation</div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-title">Draw & Tap</div>
+                <div class="step-description">Select a card and tap on phone to begin recording</div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <div class="step-title">Share Stories</div>
+                <div class="step-description">Conversation flows naturally, app records in background</div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">5</div>
+                <div class="step-title">Archive</div>
+                <div class="step-description">Stories automatically save, organized by category and speaker</div>
+            </div>
+        </div>
 
         <div class="image-placeholder">
             <p>Final Card Design</p>
-                <img src="images/Card Design/TLA Cards_03-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <img src="images/Card Design/TLA Cards_48-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <img src="images/Card Design/TLA Cards_32-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <img src="images/Card Design/TLA Cards_20-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <img src="images/Card Design/TLA Cards_26-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <img src="images/Card Design/TLA Cards_04-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-
+            <img src="images/Card Design/TLA Cards_03-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+            <img src="images/Card Design/TLA Cards_48-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+            <img src="images/Card Design/TLA Cards_32-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+            <img src="images/Card Design/TLA Cards_20-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+            <img src="images/Card Design/TLA Cards_26-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+            <img src="images/Card Design/TLA Cards_04-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
             <small><br>Physical cards with color-coded categories</small>
         </div>
+
         <div class="image-placeholder">
             <p>Final App Design</p>
-                    <img src="images/The Living Archive/Home Screen.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px;">
-                    <img src="images/The Living Archive/Deck Slide - Select Question.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px; object-position: top;">
-                    <img src="images/The Living Archive/Initial Deck Slide.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px;">
+            <img src="images/The Living Archive/Home Screen.png" alt="App home screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px;">
+            <img src="images/The Living Archive/Deck Slide - Select Question.png" alt="Question selection screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px; object-position: top;">
+            <img src="images/The Living Archive/Initial Deck Slide.png" alt="Recording interface" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; margin-right: 15px;">
+            <small><br>App interface showing home, question selection, and recording screens</small>
         </div>
 
         <!-- Why Physical Cards -->
         <div class="iteration-container">
             <h3 class="iteration-title">Why Physical Cards?</h3>
-            <p class="iteration-description">The decision to create physical cards rather than a purely digital solution was strategic. Research showed that physical objects create shared, tactile experiences that bridge generational comfort levels with technology. Cards transform what could feel like an interrogation into a game-like experience, reducing intimidation around sensitive topics.</p>
+            <p class="iteration-description">Early in my design process, I considered a purely digital solution. But interview insights pointed in a different direction. Multiple participants described feeling uncomfortable asking direct questions about their parents' past, with one noting it felt "too much like an interrogation."</p>
+
+            <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">Physical cards solve this by reframing the interaction. Instead of a child asking pointed questions, families sit together and draw cards, transforming what could feel confrontational into a shared, game-like activity. The tactile nature of shuffling, selecting, and passing cards creates ritual and signals importance. Additionally, older parents might feel overwhelmed by app interfaces, but everyone understands how to pick up a card.</p>
             
             <div class="insight-box">
                 <h5>Physical vs Digital Balance</h5>
                 <p>We wanted to create a form that allows children and their parents to communicate without distractions, but recognized that the absence of a digital solution leaves room for family history to be lost. The hybrid approach bridges this gap: physical cards facilitate focused, meaningful conversation while seamless digital recording ensures these precious stories are preserved for future generations.</p>
             </div>
+
+            <div class="insight-box">
+                <h5>Why NFC Technology?</h5>
+                <p>I chose NFC over alternatives like QR codes or manual recording for seamless interaction. QR codes require holding the phone up to scan, which interrupts conversation flow and feels transactional. NFC creates an almost effortless moment: tap the card, recording starts automatically, conversation continues. The technology disappears into the background, supporting rather than interrupting human connection.</p>
+            </div>
+
             <div class="image-placeholder">
                 <p>Physical Cards & Box</p>
                 <img src="images/The Living Archive/IMG_2080 (1).png" alt="" style="max-width: 36%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
                 <img src="images/The Living Archive/IMG_2079.jpeg" alt="" style="max-width: 40%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <small><br>Cards printed on cardstock and carried in a lazercut puzzle-style box</small>
+                <small><br>Cards printed on cardstock and carried in a laser-cut puzzle-style box</small>
             </div>
         </div>
 
         <!-- The 10 Pillars -->
         <h2 class="section-title">Content Strategy: The 10 Pillars</h2>
 
-        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">Through content analysis of interview responses and survey feedback, I identified 10 thematic categories that form the foundation of meaningful intergenerational conversations. Questions were phrased to encourage storytelling and bring up topics that might not emerge in everyday conversation.</p>
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">I analyzed interview transcripts and survey responses, identifying recurring themes through affinity mapping. Ten distinct categories emerged, covering the full spectrum of immigrant family experiences from lighthearted memories to complex identity questions. Each category was assigned a specific color to create visual organization and emotional associations that guide users through different conversation depths.</p>
 
         <div class="pillars-grid">
             <div class="feature-card">
@@ -1022,6 +1070,27 @@
             </div>
         </div>
 
+        <!-- Question Design Examples -->
+        <h3 class="findings-title">Question Design Strategy</h3>
+
+        <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">Questions were carefully phrased to encourage storytelling and bring up topics that might not emerge in everyday conversation. Instead of direct interrogation, each prompt invites narrative and reflection.</p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+            <div class="example-card">
+                <div class="example-card-visual">
+                    <img src="images/Card Design/TLA Cards_32-1.png" alt="Transition question card" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <p class="example-rationale">Instead of asking "When did you first feel comfortable in America?", this prompt invites storytelling through narrative. It focuses on a specific moment rather than requesting analysis, making the response feel more personal and accessible.</p>
+            </div>
+
+            <div class="example-card">
+                <div class="example-card-visual">
+                    <img src="images/Card Design/TLA Cards_26-1.png" alt="Language question card" style="max-width: 100%; height: auto; border-radius: 8px;">
+                </div>
+                <p class="example-rationale">This question acknowledges the complexity of cultural translation while inviting reflection. It validates that some aspects of heritage can't be captured in English, honoring linguistic authenticity.</p>
+            </div>
+        </div>
+
         <!-- Design Process -->
         <h2 class="section-title">Design Process & Iterations</h2>
 
@@ -1033,7 +1102,7 @@
             
             <div class="image-placeholder">
                 <p>Physical cards and digital app architecture mapping</p>
-                <img src="images/The Living Archive/Information Brainstorm.png" alt="" style="max-width: 50%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+                <img src="images/The Living Archive/Information Brainstorm.png" alt="" style="max-width: 60%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
             </div>
         </div>
 
@@ -1043,7 +1112,7 @@
             
             <div class="image-placeholder">
                 <p>Low-Fidelity App Wireframes</p>
-                <img src="images/The Living Archive/Low FI.png" alt="" style="max-width: 50%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+                <img src="images/The Living Archive/Low FI.png" alt="" style="max-width: 60%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
                 <small><br>Early explorations of app navigation, recording interface, and archive organization</small>
             </div>
         </div>
@@ -1054,7 +1123,7 @@
             
             <div class="image-placeholder">
                 <p>Initial Card Concepts</p>
-                <img src="images/The Living Archive/Intial Designs.png" alt="" style="max-width: 50%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
+                <img src="images/The Living Archive/Intial Designs.png" alt="" style="max-width: 60%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
                 <small><br>Early card design explorations and layout iterations</small>
             </div>
             
@@ -1066,7 +1135,7 @@
                 <img src="images/Card Design/TLA Cards_48-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
                 <img src="images/Card Design/TLA Cards_32-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
                 <img src="images/Card Design/TLA Cards_01-1.png" alt="" style="max-width: 30%; height: auto; margin: 20px 0 10px 0; border-radius: 4px; border: 1px solid #e5e1db;">
-                <small><br>Card design highlighting final color palette and typography</small>
+                <small><br>Final cards showing color palette and typography refinements</small>
             </div>
         </div>
 
@@ -1076,16 +1145,17 @@
             
             <div class="image-placeholder">
                 <p>High-Fidelity App Prototypes</p>
-                <img src="images/The Living Archive/QR Code Screen.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                    <img src="images/The Living Archive/Home Screen.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                                        <img src="images/The Living Archive/Speakers.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                    <img src="images/The Living Archive/Deck Slide - Select Question.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; object-position: top;">
-                    <img src="images/The Living Archive/Initial Deck Slide.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                <small><br>Final app interface showing QR code scanning, recording flow, and family archive</small>
+                <img src="images/The Living Archive/QR Code Screen.png" alt="QR code scanning screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                <img src="images/The Living Archive/Home Screen.png" alt="Home screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                <img src="images/The Living Archive/Speakers.png" alt="Speaker selection screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                <img src="images/The Living Archive/Deck Slide - Select Question.png" alt="Question selection" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; object-position: top;">
+                <img src="images/The Living Archive/Initial Deck Slide.png" alt="Recording interface" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                <small><br>Complete user flow from QR scanning to story recording and archiving</small>
             </div>
+
             <div class="insight-box">
                 <h5>User Workflow</h5>
-                <p>Users scan the QR code on the physical card deck to link questions with their app account. After logging in, they begin tapping cards on their phone. For the first question of each session, users are prompted to identify speakers. The app then transcribes conversations and highlights each person speaking, allowing seamless continuation by tapping the next card.</p>
+                <p>Users scan the QR code on the physical card deck to link questions with their app account. After logging in, they begin tapping cards on their phone. For the first question of each session, users are prompted to identify speakers. The app then transcribes conversations and highlights each person speaking, allowing seamless continuation by tapping the next card. All stories remain private to the family with no external sharing or public archiving.</p>
             </div>
         </div>
 
@@ -1094,7 +1164,7 @@
         <div class="findings-grid">
             <div class="finding-item">
                 <h4>Digital Enhancements</h4>
-                <p>Integrated pre-recording setup to identify speakers for easier archive searching.</p>
+                <p>Integrated pre-recording setup to identify speakers for easier archive searching and playback organization.</p>
             </div>
             <div class="finding-item">
                 <h4>Physical Card Refinements</h4>
@@ -1132,11 +1202,11 @@
         <div class="findings-grid">
             <div class="finding-item">
                 <h4>User Testing with Families</h4>
-                <p>Conduct comprehensive usability testing with first-generation families to refine question phrasing and app workflow based on real-world usage.</p>
+                <p>Test with immigrant families to validate card question effectiveness, app recording workflow, and overall experience with the hybrid approach.</p>
             </div>
             <div class="finding-item">
                 <h4>Multilingual Expansion</h4>
-                <p>Translate cards and app interface into heritage languages to remove language barriers and honor cultural authenticity in storytelling.</p>
+                <p>Translate cards and app interface into different languages to remove language barriers and honor cultural authenticity in storytelling.</p>
             </div>
             <div class="finding-item">
                 <h4>Technical Development</h4>
@@ -1150,7 +1220,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
     <script>
-        // Animation on load
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const container = document.querySelector('.case-study-container');
@@ -1159,6 +1228,23 @@
                 }
             }, 300);
         });
+
+        // Mobile menu toggle - with null checks
+        const navbarToggle = document.getElementById('navbarToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+        const navbarOverlay = document.getElementById('navbarOverlay');
+
+        if (navbarToggle && navbarMenu && navbarOverlay) {
+            navbarToggle.addEventListener('click', () => {
+                navbarMenu.classList.toggle('active');
+                navbarOverlay.classList.toggle('active');
+            });
+
+            navbarOverlay.addEventListener('click', () => {
+                navbarMenu.classList.remove('active');
+                navbarOverlay.classList.remove('active');
+            });
+        }
     </script>
 </body>
 </html>
