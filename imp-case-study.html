@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Imposter Syndrome Toolkit - UX Case Study</title>
-    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css" />
     <style>
         /* Navbar Styles */
@@ -152,10 +151,6 @@
             padding: 0 !important;
         }
 
-        body.project-body {
-            margin-top: 0 !important;
-        }
-
         .case-study-container {
             max-width: 1000px;
             margin: 0 auto;
@@ -190,16 +185,9 @@
             font-size: 3rem;
             font-weight: 500;
             line-height: 1.1;
-            margin-bottom: 12px;
+            margin-bottom: 60px;
             color: #1a1a1a;
             letter-spacing: -0.02em;
-        }
-
-        .hero-subtitle {
-            font-size: 1.2rem;
-            color: #8b7355;
-            font-weight: 300;
-            margin-bottom: 60px;
         }
 
         .project-meta {
@@ -359,10 +347,6 @@
             font-weight: 300;
         }
 
-        .evolution-section {
-            margin: 140px 0;
-        }
-
         .iteration-container {
             margin: 80px 0;
         }
@@ -395,7 +379,7 @@
         }
 
         .image-placeholder {
-            background: #f9f8f6;
+            background: #f5f4f1;
             border: 1px solid #e5e1db;
             border-radius: 6px;
             padding: 40px;
@@ -406,7 +390,7 @@
         .image-placeholder p {
             color: #8b7355;
             font-size: 0.9rem;
-            margin-bottom: 6px;
+            margin-bottom: 20px;
             font-weight: 400;
         }
 
@@ -414,6 +398,15 @@
             color: #a39080;
             font-size: 0.8rem;
             font-weight: 300;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e5e1db;
         }
 
         .insight-box {
@@ -421,6 +414,7 @@
             border-left: 3px solid #d97706;
             padding: 24px 28px;
             margin: 40px 0;
+            border-radius: 0 6px 6px 0;
         }
 
         .insight-box h5 {
@@ -668,9 +662,9 @@
         <button class="navbar-toggle" id="navbarToggle">☰</button>
         <div class="navbar-container" id="navbarMenu">
             <ul class="navbar-menu">
-                <li><a href="index.html" data-page="index">Home</a></li>
-                <li><a href="design.html" data-page="design" class="active">Design</a></li>
-                <li><a href="community.html" data-page="community">Advocacy</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design.html" class="active">Design</a></li>
+                <li><a href="community.html">Advocacy</a></li>
             </ul>
         </div>
     </nav>
@@ -678,7 +672,7 @@
     <div class="case-study-container">
         <a href="design.html" class="back-button">Back to Projects</a>
 
-        <div style="text-align: center; margin-bottom: 60px;">
+        <div style="text-align: center;">
             <h1 class="hero-title">Imposter Syndrome Toolkit</h1>
         </div>
 
@@ -752,48 +746,44 @@
             </div>
         </div>
 
-        <div class="evolution-section">
-            <h2 class="section-title">Design Evolution</h2>
+        <h2 class="section-title">Design Evolution</h2>
 
-            <div class="iteration-container">
-                <h3 class="iteration-title">First Iteration: Safe Spaces</h3>
-                <p class="iteration-description">An app to find safe spaces on campus where users could look through inclusive events and clubs to connect with others going through similar experiences.</p>
-                
-                <div class="image-placeholder">
-                    <p>First Iteration Wireframes</p>
-                    
-                    <div style="display: flex; gap: 16px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
-                        <img src="images/first iteration/13 Pro - 2.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/first iteration/13 Pro - 3.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/first iteration/13 Pro - 4.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/first iteration/13 Pro - 7.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                     </div>
-                     <br> <small>Safe Spaces app: Home, Events, and Mentorship screens</small>
+        <div class="iteration-container">
+            <h3 class="iteration-title">First Iteration: Safe Spaces</h3>
+            <p class="iteration-description">An app to find safe spaces on campus where users could look through inclusive events and clubs to connect with others going through similar experiences.</p>
+            
+            <div class="image-placeholder">
+                <p>First Iteration Wireframes</p>
+                <div style="display: flex; gap: 16px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
+                    <img src="images/first iteration/13 Pro - 2.png" alt="Home screen wireframe" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/first iteration/13 Pro - 3.png" alt="Events screen wireframe" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/first iteration/13 Pro - 4.png" alt="Clubs screen wireframe" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/first iteration/13 Pro - 7.png" alt="Mentorship screen wireframe" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
                 </div>
-
-                <div class="insight-box">
-                    <h5>Shortcomings Discovered</h5>
-                    <p>Despite being helpful for connecting students with similar interests, this approach wasn't direct enough. Research showed students wanted immediate advice and comfort at their fingertips to tackle these emotions in real-time.</p>
-                </div>
-
-                <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin: 40px 0; font-weight: 300;">User testing revealed that individuals wanted a hub full of resources to guide them through their emotions rather than just social connections. Instead of a professional or sterile atmosphere, the app should focus on softness and make users feel comforted. This feedback was crucial in pivoting from a social approach to a personal resource toolkit.</p>
+                <small>Safe Spaces app: Home, Events, and Mentorship screens</small>
             </div>
 
-            <div class="iteration-container">
-                <h3 class="iteration-title">Low-Fidelity Exploration</h3>
-                <p class="iteration-description">Early wireframes exploring the toolkit concept with basic mood tracking, resource access, and user-friendly interactions.</p>
-                
-                <div class="image-placeholder">
-                    <p>Low-Fidelity Wireframes</p>
-                    
-                    <div style="display: flex; gap: 14px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
-                        <img src="images/low fi/13 Pro - 2.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/low fi/ ISTK  13 Pro - 5.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/low fi/13 Pro - 8.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                        <img src="images/low fi/13 Pro - 9.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                    </div>
-                    <br> <small>Initial toolkit concept: Welcome, Check-In, and Resources screens</small>
+            <div class="insight-box">
+                <h5>Shortcomings Discovered</h5>
+                <p>Despite being helpful for connecting students with similar interests, this approach wasn't direct enough. Research showed students wanted immediate advice and comfort at their fingertips to tackle these emotions in real-time.</p>
+            </div>
+
+            <p style="font-size: 1rem; color: #4b5563; line-height: 1.7; margin: 40px 0; font-weight: 300;">User testing revealed that individuals wanted a hub full of resources to guide them through their emotions rather than just social connections. Instead of a professional or sterile atmosphere, the app should focus on softness and make users feel comforted. This feedback was crucial in pivoting from a social approach to a personal resource toolkit.</p>
+        </div>
+
+        <div class="iteration-container">
+            <h3 class="iteration-title">Low-Fidelity Exploration</h3>
+            <p class="iteration-description">Early wireframes exploring the toolkit concept with basic mood tracking, resource access, and user-friendly interactions.</p>
+            
+            <div class="image-placeholder">
+                <p>Low-Fidelity Wireframes</p>
+                <div style="display: flex; gap: 14px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
+                    <img src="images/low fi/13 Pro - 2.png" alt="Welcome screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/low fi/ ISTK  13 Pro - 5.png" alt="Check-in screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/low fi/13 Pro - 8.png" alt="Resources screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/low fi/13 Pro - 9.png" alt="Profile screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
                 </div>
+                <small>Initial toolkit concept: Welcome, Check-In, and Resources screens</small>
             </div>
         </div>
 
@@ -810,14 +800,13 @@
             
             <div class="image-placeholder">
                 <p>High-Fidelity Prototypes</p>
-                
                 <div style="display: flex; gap: 14px; margin-top: 20px; justify-content: center; flex-wrap: wrap;">
-                    <img src="images/High Fi/Log In Frame.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                    <img src="images/High Fi/check in.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
-                    <img src="images/High Fi/Resources.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; object-position: top;">
-                    <img src="images/High Fi/Affirmations.png" alt="Description of image" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/High Fi/Log In Frame.png" alt="Login screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/High Fi/check in.png" alt="Check-in screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
+                    <img src="images/High Fi/Resources.png" alt="Resources hub" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd; object-position: top;">
+                    <img src="images/High Fi/Affirmations.png" alt="Affirmations screen" style="width: 160px; aspect-ratio: 9/19.5; object-fit: cover; border-radius: 20px; border: 1px solid #ddd;">
                 </div>
-                <br><small>Final design: Login, Daily Check-In, Resources Hub, Affirmations, and Search features</small>
+                <small>Final design: Login, Daily Check-In, Resources Hub, and Affirmations</small>
             </div>
         </div>
 
@@ -888,25 +877,27 @@
             const menu = document.getElementById('navbarMenu');
             const overlay = document.getElementById('navbarOverlay');
 
-            toggle.addEventListener('click', function() {
-                menu.classList.toggle('active');
-                overlay.classList.toggle('active');
-                this.textContent = menu.classList.contains('active') ? '✕' : '☰';
-            });
+            if (toggle && menu && overlay) {
+                toggle.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    this.textContent = menu.classList.contains('active') ? '✕' : '☰';
+                });
 
-            overlay.addEventListener('click', function() {
-                menu.classList.remove('active');
-                overlay.classList.remove('active');
-                toggle.textContent = '☰';
-            });
-
-            document.querySelectorAll('.navbar-menu a').forEach(link => {
-                link.addEventListener('click', () => {
+                overlay.addEventListener('click', function() {
                     menu.classList.remove('active');
                     overlay.classList.remove('active');
                     toggle.textContent = '☰';
                 });
-            });
+
+                document.querySelectorAll('.navbar-menu a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        menu.classList.remove('active');
+                        overlay.classList.remove('active');
+                        toggle.textContent = '☰';
+                    });
+                });
+            }
         });
 
         // Animation on load
