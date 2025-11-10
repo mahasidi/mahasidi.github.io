@@ -4,15 +4,24 @@ html {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #fff;
+  background-color: #f5f4f1;
   font-family: indivisible, sans-serif;
   font-style: normal;
   font-weight: 400;
-  overflow: scroll;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 
 #og {
   color: black;
+}
+
+#first {
+  color: black;
+  padding-left: 10px;
 }
 
 .project {
@@ -21,89 +30,6 @@ html {
 
 .project-body {
   margin-top: 80px; 
-}
-
-/* HOME STYLES WITH ANIMATIONS */
-#first {
-  color: black;
-  padding-left: 10px;
-}
-
-#home {
-  display: inline-block;
-  background-image: url("images/Background-Design.png");
-  margin: -8px;
-  color: black;
-}
-
-.home-text {
-  margin-top: 4%;
-  margin-left: 10%;
-  margin-right: 500px;
-  position: relative;
-  top: 200px;
-  letter-spacing: 1px;
-  opacity: 0;
-  animation: fadeInHome 1s ease-out 0.5s forwards;
-}
-
-.home-text h1 {
-  font-family: larken, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 44px;
-}
-
-.home-text h2 {
-  font-family: larken, sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-size: 44px;
-  width: 70%;
-  padding-bottom: 40px;
-}
-
-#home p {
-  font-size: 16px;
-  line-height: 150%;
-  margin-top: -10px;
-}
-
-.text-h {
-  width: 50%;
-}
-
-#home img {
-  transition: all 1s ease-in-out;
-  width: 33%;
-  height: 33%;
-  border-top-left-radius: 300px;
-  border-top-right-radius: 300px;
-  float: right;
-  position: relative;
-  bottom: 450px;
-  margin-top: 40px;
-  margin-bottom: -25%;
-  margin-right: 7%;
-  border: solid;
-  opacity: 0;
-  animation: fadeInHome 1s ease-out 0.5s forwards;
-}
-
-#home img:hover {
-  transition: all 1s ease-in-out;
-  filter: drop-shadow(0 0 0.75rem black);
-}
-
-@keyframes fadeInHome {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* MINIMAL PROJECTS GRID */
@@ -147,64 +73,41 @@ html {
   width: 100%;
   height: 280px;
   margin-bottom: 1.5rem;
-  transition: all 0.4s ease;
   overflow: hidden;
   position: relative;
-  background-size: cover;
-  background-position: center;
 }
 
-.project-image-minimal::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0,0,0,0);
-  transition: all 0.3s ease;
+.project-image-minimal img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
 }
 
-.project-minimal:hover .project-image-minimal::after {
-  background: rgba(0,0,0,0.1);
+.project-image-minimal img.journal-img {
+  object-position: center 10%;
 }
 
-.project-image-minimal.living-archive {
-  background-image: url("images/Untitled\ presentation\ \(2\).jpg");
+.project-image-minimal img.imposter-img {
+  object-position: center 30%;
 }
 
-.project-image-minimal.journal {
-  background-image: url("images/2nd.png");
-  background-position: center 10%;
+.project-image-minimal img.biographies-img {
+  object-position: center 17%;
 }
 
-.project-image-minimal.imposter {
-  background-image: url("images/UI-14 (1) (1).jpg");
-  background-position: center 30%;
+.project-image-minimal img.radiance-img {
+  object-position: center 17%;
 }
 
-.project-image-minimal.spoiler {
-  background-image: url("images/Spoiler Alert.png");
-}
-
-.project-image-minimal.biographies {
-  background-image: url("images/page 6.png");
-  background-position: center 17%;
-}
-
-.project-image-minimal.radiance {
-  background-image: url("images/radiance.png");
-  background-position: center 17%;
-}
-
-.project-image-minimal.time {
-  background-image: url("images/Time.png");
+.project-minimal:hover .project-image-minimal img {
+  filter: brightness(0.9);
 }
 
 .project-title-minimal {
   font-family: larken, serif;
   font-size: 1.75rem;
-  font-weight: 500;
+  font-weight: 300;
   color: #1a1a1a;
   margin-bottom: 0.5rem;
   line-height: 1.2;
@@ -218,15 +121,9 @@ html {
 }
 
 .project-details-minimal {
-  opacity: 0.4;
-  transform: translateY(0);
-  transition: all 0.3s ease;
-  margin-top: 1rem;
-}
-
-.project-minimal:hover .project-details-minimal {
   opacity: 1;
   transform: translateY(0);
+  margin-top: 1rem;
 }
 
 .project-description-minimal {
@@ -235,7 +132,6 @@ html {
   line-height: 1.6;
   margin-bottom: 1rem;
 }
-
 
 .project-tools-minimal {
   display: flex;
@@ -294,7 +190,7 @@ html {
 .advocacy-title {
   font-family: larken, serif;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: 300;
   color: #1a1a1a;
   margin-bottom: 1.5rem;
   line-height: 1.3;
@@ -403,10 +299,6 @@ html {
   width: 95%;
   padding-bottom: 10px;
   transition: all 1s ease-in-out;
-}
-
-.spacer {
-
 }
 
 #marble {
@@ -555,10 +447,6 @@ html {
   background-size: cover;
 }
 
-#page-layout {
-  background-color: #f5f4f1;
-}
-
 /* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
   .projects-minimal-grid {
@@ -586,38 +474,6 @@ html {
   
   .advocacy-description {
     font-size: 1rem;
-  }
-}
-
-@media (max-width: 1015px) {
-  .home-text {
-    top: 0px;
-    padding: 0px;
-    padding-bottom: 10px;
-    letter-spacing: 1px;
-    text-align: center;
-    margin: 0px;
-    margin-top: 5%;
-  }
-
-  .text-h {
-    width: auto;
-  }
-
-  #home img {
-    width: 50%;
-    height: 50%;
-    border-top-left-radius: 300px;
-    border-top-right-radius: 300px;
-    float: none;
-    bottom: 0px;
-    margin: 0px;
-    margin-bottom: 10%;
-    padding: auto;
-  }
-  
-  #home {
-    text-align: center;
   }
 }
 

@@ -175,7 +175,7 @@
             padding: 0 1rem;
         }
 
-        .coming-soon-project .project-image-minimal {
+        .coming-soon-project .project-image-minimal img {
             transition: filter 0.4s ease;
         }
 
@@ -192,7 +192,7 @@
                 transform: translateY(0);
             }
 
-            .coming-soon-project:hover .project-image-minimal {
+            .coming-soon-project:hover .project-image-minimal img {
                 filter: grayscale(100%) brightness(0.6);
             }
         }
@@ -207,7 +207,7 @@
                 font-size: 1.2rem;
             }
 
-            .coming-soon-project .project-image-minimal {
+            .coming-soon-project .project-image-minimal img {
                 filter: grayscale(100%) brightness(0.6);
             }
         }
@@ -232,6 +232,43 @@
             margin-top: 0 !important;
             padding-top: 0 !important;
         }
+
+        /* Image container styles */
+        .project-image-minimal {
+            width: 100%;
+            height: 280px;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image-minimal img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        /* Specific image positions */
+        .project-image-minimal img.journal-img {
+            object-position: center 10%;
+        }
+
+        .project-image-minimal img.imposter-img {
+            object-position: center 30%;
+        }
+
+        .project-image-minimal img.biographies-img {
+            object-position: center 17%;
+        }
+
+        .project-image-minimal img.radiance-img {
+            object-position: center 17%;
+        }
+
+        .project-minimal:hover .project-image-minimal img {
+            filter: brightness(0.9);
+        }
     </style>
   </head>
   <body class="project-body">
@@ -244,7 +281,7 @@
             <ul class="navbar-menu">
                 <li><a href="index.html" data-page="index">Home</a></li>
                 <li><a href="design.html" data-page="design">Design</a></li>
-                <li><a href="community.html" data-page="community">Advocacy</a></li>
+                <li><a href="community.html" data-page="community">Community</a></li>
             </ul>
         </div>
     </nav>
@@ -255,7 +292,9 @@
           
           <div class="project-minimal stagger-1" onclick="window.location.href='liv-case-study.html'">
             <div class="project-number">01</div>
-            <div class="project-image-minimal living-archive"></div>
+            <div class="project-image-minimal">
+              <img src="images/Untitled presentation (2).jpg" alt="The Living Archive - Cultural heritage preservation cards" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">The Living Archive</h3>
             <p class="project-type-minimal">Capstone Project • 6 Months</p>
             <div class="project-details-minimal">
@@ -278,7 +317,9 @@
               <div class="coming-soon-text">Case Study Coming Soon</div>
             </div>
             <div class="project-number">02</div>
-            <div class="project-image-minimal spoiler"></div>
+            <div class="project-image-minimal">
+              <img src="images/Spoiler Alert.png" alt="Spoiler Alert - Food waste reduction app" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Spoiler Alert</h3>
             <p class="project-type-minimal">Interaction Design • 6 Months</p>
             <div class="project-details-minimal">
@@ -300,7 +341,9 @@
               <div class="coming-soon-text">Case Study Coming Soon</div>
             </div>
             <div class="project-number">03</div>
-            <div class="project-image-minimal radiance"></div>
+            <div class="project-image-minimal">
+              <img src="images/radiance.png" class="radiance-img" alt="Radiance - Skincare companion app" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Radiance</h3>
             <p class="project-type-minimal">Interaction Design • 6 Months</p>
             <div class="project-details-minimal">
@@ -320,7 +363,9 @@
 
           <div class="project-minimal stagger-4" onclick="window.location.href='imp-case-study.html'">
             <div class="project-number">04</div>
-            <div class="project-image-minimal imposter"></div>
+            <div class="project-image-minimal">
+              <img src="images/UI-14 (1) (1).jpg" class="imposter-img" alt="Imposter Syndrome Toolkit app interface" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Imposter Syndrome Toolkit</h3>
             <p class="project-type-minimal">Interaction Design • 6 Months</p>
             <div class="project-details-minimal">
@@ -339,7 +384,9 @@
 
           <div class="project-minimal stagger-5" onclick="window.open('https://drive.google.com/file/d/1Dk9aTzV8x7jKKbT32aLr0cpfKfEQaceL/view?usp=sharing', '_blank')">
             <div class="project-number">05</div>
-            <div class="project-image-minimal biographies"></div>
+            <div class="project-image-minimal">
+              <img src="images/page 6.png" class="biographies-img" alt="Extra-Continental Biographies book spread" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Extra-Continental Biographies</h3>
             <p class="project-type-minimal">Editorial Design • 2 Months</p>
             <div class="project-details-minimal">
@@ -357,7 +404,9 @@
 
           <div class="project-minimal stagger-6" onclick="window.open('https://drive.google.com/file/d/1HmDGPL1F38D8wdbS_Fz8TeKaEDvuykgN/view?usp=sharing', '_blank')">
             <div class="project-number">06</div>
-            <div class="project-image-minimal time"></div>
+            <div class="project-image-minimal">
+              <img src="images/Time.png" alt="Mining an Archive: Time Magazine data visualization" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Mining an Archive: Time Magazine</h3>
             <p class="project-type-minimal">Information Design • 1 Month</p>
             <div class="project-details-minimal">
@@ -375,7 +424,9 @@
 
           <div class="project-minimal stagger-7" onclick="window.open('https://drive.google.com/file/d/1hhS0AyhpYH0_eaD0RMYw7Nq0RvFxFNom/view?usp=sharing', '_blank')">
             <div class="project-number">07</div>
-            <div class="project-image-minimal journal"></div>
+            <div class="project-image-minimal">
+              <img src="images/2nd.png" class="journal-img" alt="Self Reflection Photo Journal spread" loading="lazy">
+            </div>
             <h3 class="project-title-minimal">Self Reflection Photo Journal</h3>
             <p class="project-type-minimal">Personal Project • 1 Month</p>
             <div class="project-details-minimal">
@@ -402,17 +453,21 @@
             const menu = document.getElementById('navbarMenu');
             const overlay = document.getElementById('navbarOverlay');
 
-            toggle.addEventListener('click', function() {
-                menu.classList.toggle('active');
-                overlay.classList.toggle('active');
-                this.textContent = menu.classList.contains('active') ? '✕' : '☰';
-            });
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    this.textContent = menu.classList.contains('active') ? '✕' : '☰';
+                });
+            }
 
-            overlay.addEventListener('click', function() {
-                menu.classList.remove('active');
-                overlay.classList.remove('active');
-                toggle.textContent = '☰';
-            });
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    menu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    toggle.textContent = '☰';
+                });
+            }
 
             document.querySelectorAll('.navbar-menu a').forEach(link => {
                 link.addEventListener('click', () => {
