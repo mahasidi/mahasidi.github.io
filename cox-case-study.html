@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en" class="project">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cox HCD Resource Hub - UX Case Study</title>
+    <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css" />
+    <style>
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.75rem 0 !important;
+            z-index: 1000;
+            background: rgba(245, 244, 241, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .navbar-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar-toggle {
+            display: none;
+        }
+
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            margin: 0;
+        }
+
+        .navbar-menu a {
+            text-decoration: none;
+            color: #333;
+            font-family: futura-pt, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .navbar-menu a:hover {
+            opacity: 0.5;
+        }
+
+        .navbar-menu a.active {
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                background: transparent;
+                backdrop-filter: none;
+            }
+
+            .navbar-toggle {
+                display: block;
+                position: fixed;
+                top: 1rem;
+                left: 1.5rem;
+                z-index: 1002;
+                background: rgba(245, 244, 241, 0.95);
+                backdrop-filter: blur(10px);
+                border: none;
+                padding: 0.6rem 0.8rem;
+                border-radius: 12px;
+                font-size: 1.3rem;
+                color: #333;
+                cursor: pointer;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            }
+
+            .navbar-container {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(245, 244, 241, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: left 0.3s ease;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .navbar-container.active {
+                left: 0;
+            }
+
+            .navbar-menu {
+                flex-direction: column;
+                gap: 2.5rem;
+            }
+
+            .navbar-menu a {
+                font-size: 0.9rem;
+            }
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: #f5f4f1;
+            color: #1a1a1a;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .case-study-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            padding-top: 70px;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            color: #666;
+            text-decoration: none;
+            font-weight: 400;
+            margin-bottom: 4rem;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .back-button:hover {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+
+        .back-button::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 1rem;
+        }
+
+        .hero-title {
+            font-family: larken, serif;
+            font-size: 3rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: #8b7355;
+            font-weight: 300;
+            margin-bottom: 60px;
+        }
+
+        .project-meta {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin: 60px 0 100px 0;
+            padding: 40px 0;
+            border-top: 1px solid rgba(26,26,26,0.08);
+            border-bottom: 1px solid rgba(26,26,26,0.08);
+        }
+
+        .meta-item h3 {
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #8b7355;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .meta-item p {
+            font-size: 0.95rem;
+            color: #1a1a1a;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .hero-product {
+            margin: 80px 0 120px 0;
+            text-align: center;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            color: #1a1a1a;
+            font-weight: 400;
+            line-height: 1.5;
+            margin-bottom: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-mockup {
+            margin-top: 60px;
+        }
+
+        .stats-section {
+            text-align: center;
+
+            padding: 30px 0;
+        }
+
+        .big-stat {
+            font-size: 5rem;
+            font-weight: 300;
+            line-height: 1;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            font-family: larken, serif;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-description {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #4b5563;
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-family: larken, serif;
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            margin: 140px 0 24px 0;
+            letter-spacing: -0.01em;
+        }
+
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin: 80px 0;
+            text-align: center;
+        }
+
+        .quick-stat-number {
+            font-size: 3rem;
+            font-weight: 300;
+            color: #1a1a1a;
+            font-family: larken, serif;
+            margin-bottom: 12px;
+        }
+
+        .quick-stat-label {
+            font-size: 0.9rem;
+            color: #4b5563;
+            font-weight: 400;
+            line-height: 1.4;
+        }
+
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin: 60px 0 120px 0;
+        }
+
+        .finding-item {
+            padding: 32px 24px;
+            background: #fafaf9;
+            border: 1px solid rgba(139,115,85,0.12);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .finding-item:hover {
+            border-color: rgba(139,115,85,0.25);
+            transform: translateY(-2px);
+        }
+
+        .finding-item h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 16px;
+        }
+
+        .finding-item p {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .iteration-container {
+            margin: 80px 0;
+        }
+
+        .iteration-title {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+            color: #1a1a1a;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .iteration-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 1px;
+            background: #8b7355;
+        }
+
+        .iteration-description {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .image-placeholder {
+            background: #f5f4f1;
+            border: 1px solid #e5e1db;
+            border-radius: 6px;
+            padding: 40px;
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .image-placeholder p {
+            color: #8b7355;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+
+        .image-placeholder small {
+            color: #a39080;
+            font-size: 0.8rem;
+            font-weight: 300;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .image-placeholder img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            border: 1px solid #e5e1db;
+        }
+
+        .insight-box {
+            background: #fafaf9;
+            border-left: 3px solid #0066cc;
+            padding: 24px 28px;
+            margin: 40px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .insight-box h5 {
+            color: #0066cc;
+            font-weight: 500;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+        }
+
+        .insight-box p {
+            color: #1e3a5f;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+        }
+
+        .solution-highlight {
+            background: #f0f9ff;
+            border-left: 3px solid #0066cc;
+            padding: 40px;
+            margin: 100px 0;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .solution-highlight h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .solution-highlight p {
+            font-size: 1.1rem;
+            color: #0066cc;
+            line-height: 1.6;
+            text-align: center;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .research-methods {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .method-card {
+            background: #fafaf9;
+            border: 1px solid rgba(139,115,85,0.12);
+            border-radius: 8px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            border-color: rgba(0,102,204,0.3);
+            transform: translateY(-2px);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .method-icon {
+            font-size: 2rem;
+        }
+
+        .method-name {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .method-detail {
+            font-size: 0.85rem;
+            color: #8b7355;
+            margin-bottom: 16px;
+        }
+
+        .method-description {
+            font-size: 0.95rem;
+            color: #4b5563;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .two-col-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin: 60px 0;
+        }
+
+        /* Native HTML Accordions */
+        details {
+            border: 1px solid rgba(139,115,85,0.12);
+            border-radius: 8px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            background: #fafaf9;
+        }
+
+        summary {
+            padding: 18px 24px;
+            cursor: pointer;
+            list-style: none;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1a1a1a;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary:hover {
+            background: #f0eeeb;
+        }
+
+        summary::after {
+            content: '+';
+            position: absolute;
+            right: 24px;
+            color: #8b7355;
+            font-size: 1.2rem;
+        }
+
+        details[open] summary::after {
+            content: '−';
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid rgba(139,115,85,0.08);
+        }
+
+        .details-content {
+            padding: 20px 24px;
+        }
+
+        .details-text {
+            font-size: 0.9rem;
+            color: #4b5563;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .details-source {
+            font-size: 0.7rem;
+            color: #8b7355;
+            font-style: italic;
+        }
+
+        .two-col-accordion {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 100px;
+        }
+
+        .case-study-container {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .case-study-container.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .project-meta {
+                grid-template-columns: 1fr 1fr;
+                gap: 30px;
+            }
+
+            .case-study-container {
+                padding: 1.5rem;
+                padding-top: 80px;
+            }
+
+            .big-stat {
+                font-size: 3.5rem;
+            }
+
+            .findings-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .research-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .two-col-grid,
+            .two-col-accordion {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .hero-tagline {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <button class="navbar-toggle" id="navbarToggle">☰</button>
+        <div class="navbar-container" id="navbarMenu">
+            <ul class="navbar-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="design.html" class="active">Design</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="case-study-container" style="margin-top: 100px; padding-top: 0;">
+        <a href="design.html" class="back-button">Back to Projects</a>
+
+        <!-- Hero -->
+        <div style="text-align: center; margin-bottom: 60px;">
+            <h1 class="hero-title">Streamlining HCD Resources at Cox</h1>
+            <p class="hero-subtitle">Transforming scattered resources into a unified self-service hub</p>
+        </div>
+
+        <div class="project-meta">
+            <div class="meta-item">
+                <h3>Company</h3>
+                <p>Cox Communications</p>
+            </div>
+            <div class="meta-item">
+                <h3>Timeline</h3>
+                <p>15 Weeks</p>
+            </div>
+            <div class="meta-item">
+                <h3>Team</h3>
+                <p>4 UX Researchers</p>
+            </div>
+            <div class="meta-item">
+                <h3>My Role</h3>
+                <p>UX Researcher & Designer</p>
+            </div>
+        </div>
+
+        <!-- HERO VISUAL -->
+        <div class="hero-product">
+            <p class="hero-tagline">Empowering 55,000+ Cox employees to independently discover Human-Centered Design resources while reducing HCD team operational overhead</p>
+            
+            <div class="hero-mockup">
+                <div class="image-placeholder">
+                    <img src="images/Cox/case-study-leadd.png" loading="lazy">
+                    <small>Centralized HCD resource hub homepage, 'New to HCD' page, 'About HCD @ Cox' page, and the 'Get Inspired' page</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Challenge -->
+        <h2 class="section-title">The Challenge</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.8; margin-bottom: 100px; font-weight: 300;">Cox's Human-Centered Design team was drowning in repetitive support requests. Resources were fragmented across six platforms, employees couldn't find what they needed, and the HCD team spent their time answering "where is this?" emails instead of doing strategic work.</p>
+
+        <!-- Problem Statement -->
+        <div class="solution-highlight">
+            <h2>How Might We...</h2>
+            <p>Enable employees to independently access HCD information, reducing operational overhead and empowering the HCD team to focus on strategic initiatives?</p>
+        </div>
+
+        <!-- Research Approach -->
+        <h2 class="section-title">Research Approach</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">I conducted mixed-methods research to understand employee resource-seeking behaviors and HCD team workflow pain points, then validated findings through surveys and comparative analysis.</p>
+
+        <div class="quick-stats">
+            <div>
+                <div class="quick-stat-number">10</div>
+                <div class="quick-stat-label">Interviews conducted with employees & HCD team</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">1,122</div>
+                <div class="quick-stat-label">Employees surveyed across divisions</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">10</div>
+                <div class="quick-stat-label">Task analyses with real users</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">4</div>
+                <div class="quick-stat-label">Platforms evaluated comparatively</div>
+            </div>
+        </div>
+
+        <!-- Research Methods Detail -->
+        <div class="research-methods">
+            <div class="method-card">
+                <div class="method-header">
+                    <span class="method-icon">💬</span>
+                    <div>
+                        <div class="method-name">Semi-Structured Interviews</div>
+                        <div class="method-detail">3 HCD team + 7 employees</div>
+                    </div>
+                </div>
+                <p class="method-description">Uncovered the "why" behind employee behavior, HCD team workflow challenges, and nuanced context that surveys couldn't reveal</p>
+                <img src="images/Cox/interview.png" loading="lazy" width="100%">
+                <img src="images/Cox/Affinity mapping 2.png" loading="lazy" width="100%">
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">
+                    <span class="method-icon">📋</span>
+                    <div>
+                        <div class="method-name">Task Analysis</div>
+                        <div class="method-detail">10 walkthroughs</div>
+                    </div>
+                </div>
+                <p class="method-description">Observed actual behavior using think-aloud protocol to map end-to-end journey with friction points across platforms</p>
+                <img src="images/Cox/Task ana.png" loading="lazy" width="98%">
+                <img src="images/Cox/Emotions.png" loading="lazy" width="100%">
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">
+                    <span class="method-icon">📊</span>
+                    <div>
+                        <div class="method-name">Survey</div>
+                        <div class="method-detail">1,122 distributed</div>
+                    </div>
+                </div>
+                <p class="method-description">Established baseline metrics on HCD awareness, search behavior, and barriers at scale to validate interview findings</p>
+                <img src="images/Cox/Survey.png" loading="lazy" width="100%">
+            </div>
+
+            <div class="method-card">
+                <div class="method-header">
+                    <span class="method-icon">🔍</span>
+                    <div>
+                        <div class="method-name">Comparative Analysis</div>
+                        <div class="method-detail">4 platforms, 25 metrics</div>
+                    </div>
+                </div>
+                <p class="method-description">Evaluated Georgia Tech Library, IBM Design Thinking, LinkedIn Learning, and Learn@Cox to identify best practices and gaps</p>
+                <img src="images/Cox/Comp Ana.png" loading="lazy" width="100%">
+            </div>
+        </div>
+
+        <!-- Key Findings -->
+        <h2 class="section-title">Key Findings</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">Research uncovered four critical barriers preventing effective resource access at Cox.</p>
+
+        <p style="font-size: 0.95rem; color: #6b7280; margin-bottom: 30px; font-style: italic;">Click to expand findings</p>
+
+        <div class="two-col-accordion">
+            <div>
+                <details>
+                    <summary>Fragmented resources drive personal workarounds</summary>
+                    <div class="details-content">
+                        <p class="details-text">Resources scattered across 6 platforms with no centralized access force employees to maintain personal drives and folders, leading to version control issues and content silos.</p>
+                        <div class="details-source">Interview | Task Analysis | Survey</div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>HCD team drowning in manual overhead</summary>
+                    <div class="details-content">
+                        <p class="details-text">Staff spend hours responding to "where is training?" questions and maintaining spreadsheets instead of focusing on strategic initiatives.</p>
+                        <div class="details-source">Interview (HCD Team) | Task Analysis</div>
+                    </div>
+                </details>
+            </div>
+
+            <div>
+                <details>
+                    <summary>Search experience overwhelms users</summary>
+                    <div class="details-content">
+                        <p class="details-text">Identical visuals and limited filters cause cognitive overload. Users struggle to recognize relevant items quickly in Learn@Cox results.</p>
+                        <div class="details-source">Interview | Task Analysis | Comparative Analysis</div>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Employees rely on informal channels over systems</summary>
+                    <div class="details-content">
+                        <p class="details-text">Most employees discover resources through coworkers and managers rather than self-service systems. They actively request AI-powered help and unified hubs for more efficient, autonomous access.</p>
+                        <div class="details-source">Survey | Interview</div>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Design Implications -->
+        <h2 class="section-title">Design Implications</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">Research revealed 8 core user needs. The solution needed to serve as a single entry point, support multiple discovery modes, minimize friction, and reduce manual overhead.</p>
+
+        <p style="font-size: 0.95rem; color: #6b7280; margin-bottom: 30px; font-style: italic;">Click to expand design requirements</p>
+
+        <div class="two-col-accordion">
+            <div>
+                <details>
+                    <summary>Visual Discoverability</summary>
+                    <div class="details-content">
+                        <p class="details-text">Improve resource discoverability through visual thumbnails and smart filtering tools that help users easily scan, compare, and select relevant content</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Automated Notifications</summary>
+                    <div class="details-content">
+                        <p class="details-text">Implement automated confirmation and waitlist notifications via real-time updates to reduce manual HCD team involvement</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Multiple Discovery Pathways</summary>
+                    <div class="details-content">
+                        <p class="details-text">Introduce multiple discovery options: Browse by Topic, Recommended for You, and Trending Courses to support different user motivations</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Intelligent Personalization</summary>
+                    <div class="details-content">
+                        <p class="details-text">Implement intelligent personalization that automatically understands user needs, role, and context to recommend relevant resources</p>
+                    </div>
+                </details>
+            </div>
+
+            <div>
+                <details>
+                    <summary>Single Entry Point</summary>
+                    <div class="details-content">
+                        <p class="details-text">Serve as the single entry point for discovery of all HCD resources across divisions</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Self-Service Support</summary>
+                    <div class="details-content">
+                        <p class="details-text">Limit staff involvement in routine requests to reduce manual overhead</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Low-Friction Access</summary>
+                    <div class="details-content">
+                        <p class="details-text">Minimize friction by ensuring resources are findable in 2 clicks or less and providing contextual help at any point of need</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Personalization & Reusability</summary>
+                    <div class="details-content">
+                        <p class="details-text">Enable personalization, reusability, and clear labeling of current/official versions</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Ideation & Concepts -->
+        <h2 class="section-title">Ideation & Concept Development</h2>
+
+        <div class="iteration-container">
+            <h3 class="iteration-title">Co-Creation with Stakeholders</h3>
+            <p class="iteration-description">We brainstormed solutions with the HCD team to understand constraints, past attempts, and technical feasibility within Cox's ecosystem.</p>
+
+            <div class="image-placeholder">
+                <img src="images/Cox/Concept Planning.png" loading="lazy" width="55%">
+                <small>Virtual brainstorming session with HCD team on Microsoft Teams</small>
+            </div>
+        </div>
+
+        <div class="iteration-container">
+            <h3 class="iteration-title">Three Concepts</h3>
+            <p class="iteration-description">After team ideation and dot voting, we developed three approaches and gathered stakeholder feedback through independent breakout sessions.</p>
+
+            <div class="image-placeholder">
+                <img src="images/Cox/Concepts.png" loading="lazy" width="80%">
+                <small>Concept A: Centralized Hub | Concept B: AI Mascot Agent | Concept C: Smart Email System</small>
+            </div>
+        </div>
+
+        <div class="insight-box">
+            <h5>Why the Centralized Hub Won</h5>
+            <p>Stakeholders valued the hub's ability to serve as a single entry point, support diverse discovery modes, and integrate with existing Cox systems. While AI features generated excitement, the hub provided the foundational infrastructure needed before adding intelligent enhancements.</p>
+        </div>
+
+        <!-- Wireframes -->
+        <h2 class="section-title">From Wireframes to High-Fidelity</h2>
+
+        <div class="iteration-container">
+            <h3 class="iteration-title">Wireframe Feedback Sessions</h3>
+            <p class="iteration-description">I tested low-fidelity wireframes with 2 Cox employees using task-based scenarios and think-aloud protocol to validate information architecture.</p>
+
+            <div class="image-placeholder">
+                <img src="images/Cox/Low-fi.png" loading="lazy" width="78%">
+                <small>Homepage, New to HCD, Trainings, Get Inspired, Request Consulting, About pages</small>
+            </div>
+        </div>
+
+        <div class="two-col-grid" style="margin: 60px 0 100px 0;">
+            <div class="finding-item">
+                <h4>What Worked</h4>
+                <p>Users immediately understood the four motivation-based pathways, successfully navigated to resources in 2 clicks, and praised the workshop calendar visibility</p>
+            </div>
+            <div class="finding-item">
+                <h4>What Needed Refinement</h4>
+                <p>Visual hierarchy felt cluttered, terminology inconsistencies caused confusion, and critical sections like FAQ were buried too low on pages</p>
+            </div>
+        </div>
+
+        <!-- Final Design -->
+        <h2 class="section-title">The Solution</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 60px; font-weight: 300;">A centralized hub consolidating all resources with multiple discovery pathways and self-service features to reduce manual team involvement.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin: 60px 0 100px 0;">
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">01</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">Multiple Discovery Pathways</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Four motivation-based entry points (New to HCD, Trainings, Request Consulting, Get Inspired) guide users based on their needs and experience level.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/Home1.png" loading="lazy" width="90%">
+                    <small>Homepage pathways section</small>
+                </div>
+            </div>
+
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">02</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">New to HCD Onboarding</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Dedicated beginner pathway with progressive learning journey, explaining foundational concepts and providing clear actionable steps to get started without overwhelming unfamiliar users.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/New2.png" loading="lazy" width="90%">
+                    <small>Getting Started steps section</small>
+                </div>
+            </div>
+
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">03</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">Workshop Calendar & Registration</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Visual certification timeline with direct registration links and real-time availability, eliminating manual spreadsheet tracking.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/Training3.png" loading="lazy" width="90%">
+                    <small>Interactive workshop calendar</small>
+                </div>
+            </div>
+
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">04</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">Self-Service FAQ & Resources</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Quick links to external tools, popular methods, and FAQ section enable independent access without team support.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/Home3.png" loading="lazy" width="90%">
+                    <small>FAQ section</small>
+                </div>
+            </div>
+
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">05</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">Real Cox Project Inspiration</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Case studies from different divisions showcase HCD methods in action with direct links to templates and tools.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/I3.png" loading="lazy" width="90%">
+                    <small>Project case studies gallery</small>
+                </div>
+            </div>
+
+            <div style="background: #fafaf9; border: 1px solid rgba(139,115,85,0.12); border-radius: 8px; padding: 32px; transition: all 0.3s ease;">
+                <div style="font-size: 0.75rem; color: #8b7355; font-weight: 600; margin-bottom: 12px; letter-spacing: 0.08em;">DESIGN SYSTEM</div>
+                <h4 style="font-size: 1.2rem; font-weight: 500; color: #1a1a1a; margin-bottom: 16px;">Cohesive Visual Language</h4>
+                <p style="font-size: 0.95rem; color: #4b5563; line-height: 1.6; margin-bottom: 20px; font-weight: 300;">Built a comprehensive design system to ensure consistency across all pages and enable efficient development handoff.</p>
+                <div class="image-placeholder" style="margin: 0; padding: 20px;">
+                    <img src="images/Cox/Brand Guide.png" loading="lazy" style="width: 100%;">
+                    <small>Typography, color palette, and spacing system</small>
+                </div>
+            </div>
+        </div>
+
+       <!-- Validation -->
+       <h2 class="section-title">Validation & Testing</h2>
+
+       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 60px 0 100px 0;">
+           <div>
+               <h3 class="iteration-title">Heuristic Evaluation</h3>
+               <p class="iteration-description">3 HCD team experts independently evaluated the prototype against 7 usability heuristics to identify violations before user testing.</p>
+
+               <div class="image-placeholder" style="margin: 0;">
+                   <img src="images/Cox/Severity.png" loading="lazy" style="width: 100%;">
+                   <small>Severity ratings across 3 evaluators</small>
+               </div>
+           </div>
+
+           <div>
+               <h3 class="iteration-title">Usability Testing</h3>
+               <p class="iteration-description">4 Cox employees from different divisions completed task-based scenarios using think-aloud protocol to validate navigation, terminology, and overall effectiveness.</p>
+
+               <div class="image-placeholder" style="margin: 0;">
+                   <img src="images/Cox/Usability.png" loading="lazy" style="width: 100%;">
+                   <small>Moderated testing sessions on Microsoft Teams</small>
+               </div>
+           </div>
+       </div>
+
+        <!-- Results -->
+        <div class="stats-section">
+            <div class="big-stat">90</div>
+            <p class="stat-description">System Usability Score (Grade A+)</p>
+            <p class="stat-source">Excellent usability</p>
+        </div>
+
+        <div class="quick-stats">
+            <div>
+                <div class="quick-stat-number">94%</div>
+                <div class="quick-stat-label">Average task completion rate</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">1.35</div>
+                <div class="quick-stat-label">Average clicks to complete tasks</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">6</div>
+                <div class="quick-stat-label">Critical design issues identified</div>
+            </div>
+            <div>
+                <div class="quick-stat-number">100%</div>
+                <div class="quick-stat-label">Would use this hub</div>
+            </div>
+        </div>
+
+        <!-- Design Recommendations -->
+        <h2 class="section-title">Design Recommendations</h2>
+
+        <p style="font-size: 1.1rem; color: #4b5563; line-height: 1.7; margin-bottom: 40px; font-weight: 300;">Testing revealed 4 priority areas for refinement before production implementation.</p>
+
+        <p style="font-size: 0.95rem; color: #6b7280; margin-bottom: 30px; font-style: italic;">Click to expand recommendations</p>
+
+        <div class="two-col-accordion">
+            <div>
+                <details>
+                    <summary>Visual Affordance</summary>
+                    <div class="details-content">
+                        <p class="details-text">Ensure consistent interaction patterns - non-clickable elements should look distinct from buttons to prevent user confusion</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Terminology Consistency</summary>
+                    <div class="details-content">
+                        <p class="details-text">Standardize "workshops" vs "trainings" usage throughout and replace vague labels with action-oriented language</p>
+                    </div>
+                </details>
+            </div>
+
+            <div>
+                <details>
+                    <summary>Content Hierarchy</summary>
+                    <div class="details-content">
+                        <p class="details-text">Move Popular Methods and FAQ higher on pages, reduce image sizes to minimize scrolling, and fix home button functionality</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Contextual Information</summary>
+                    <div class="details-content">
+                        <p class="details-text">Add foundational HCD explanations, concrete project outcomes, and training format/duration details</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Impact -->
+        <h2 class="section-title">Impact & Outcomes</h2>
+
+        <div class="two-col-grid">
+            <div class="finding-item">
+                <h4>For Employees</h4>
+                <p>Resources now accessible in 1.35 clicks instead of fragmented searches. AI search and FAQ answer routine questions without waiting for email responses. Multiple discovery pathways support different learning styles and experience levels.</p>
+            </div>
+            <div class="finding-item">
+                <h4>For HCD Team</h4>
+                <p>Automated self-service features reduce time spent on repetitive support requests. Team capacity freed up for strategic initiatives. Centralized platform eliminates need to manually curate and send resource links.</p>
+            </div>
+        </div>
+
+        <!-- Learnings -->
+        <h2 class="section-title">Lessons Learned</h2>
+
+        <div class="findings-grid">
+            <div class="finding-item">
+                <h4>Enterprise Constraints Shape Solutions</h4>
+                <p>Balancing technical feasibility, organizational politics, and user needs required continuous stakeholder collaboration and realistic scoping</p>
+            </div>
+            <div class="finding-item">
+                <h4>Feedback Catches Blind Spots</h4>
+                <p>Testing with fresh eyes revealed terminology confusion and navigation issues we'd overlooked while deeply focused on design decisions</p>
+            </div>
+            <div class="finding-item">
+                <h4>Task Analysis Reveals Truth</h4>
+                <p>Observing actual behavior uncovered workarounds and pain points that users didn't articulate in interviews, shaping critical design decisions</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Fade in on load
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const container = document.querySelector('.case-study-container');
+                if (container) {
+                    container.classList.add('fade-in');
+                }
+            }, 300);
+        });
+
+        // Navbar toggle for mobile only
+        const navbarToggle = document.getElementById('navbarToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+
+        if (navbarToggle && navbarMenu) {
+            navbarToggle.addEventListener('click', () => {
+                navbarMenu.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>
