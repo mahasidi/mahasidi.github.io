@@ -164,7 +164,7 @@
             <ul class="navbar-menu">
               <li><a href="/" data-page="index">Home</a></li>
               <li><a href="/design/" data-page="design">Design</a></li>
-              <li><a href="/community/" data-page="community" class="active">Community</a></li>
+              <li><a href="/community/" data-page="community">Community</a></li>
             </ul>
         </div>
     </nav>
@@ -281,6 +281,13 @@
                 });
             });
         });
+
+        const path = window.location.pathname;
+document.querySelectorAll('.navbar-menu a').forEach(link => {
+    const linkPath = link.getAttribute('href');
+    const isActive = path === linkPath || (linkPath !== '/' && path.startsWith(linkPath));
+    link.classList.toggle('active', isActive);
+});
 
         // Animation on load
         window.addEventListener('load', () => {

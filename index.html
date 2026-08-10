@@ -440,7 +440,7 @@ color: #a03d3d;
     <button class="navbar-toggle" id="navbarToggle">☰</button>
     <div class="navbar-container" id="navbarMenu">
         <ul class="navbar-menu">
-          <li><a href="/" data-page="index" class="active">Home</a></li>
+          <li><a href="/" data-page="index">Home</a></li>
           <li><a href="/design/" data-page="design">Design</a></li>
           <li><a href="/community/" data-page="community">Community</a></li>
         </ul>
@@ -497,6 +497,12 @@ color: #a03d3d;
                 if (toggle) toggle.textContent = '☰';
             });
         });
+        const path = window.location.pathname;
+document.querySelectorAll('.navbar-menu a').forEach(link => {
+    const linkPath = link.getAttribute('href');
+    const isActive = path === linkPath || (linkPath !== '/' && path.startsWith(linkPath));
+    link.classList.toggle('active', isActive);
+});
     });
 </script>
 </body>

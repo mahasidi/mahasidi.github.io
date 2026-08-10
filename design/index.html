@@ -277,7 +277,7 @@
         <div class="navbar-container" id="navbarMenu">
             <ul class="navbar-menu">
               <li><a href="/" data-page="index">Home</a></li>
-              <li><a href="/design/" data-page="design" class="active">Design</a></li>
+              <li><a href="/design/" data-page="design">Design</a></li>
               <li><a href="/community/" data-page="community">Community</a></li>
             </ul>
         </div>
@@ -458,13 +458,12 @@
                 });
             });
 
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            document.querySelectorAll('.navbar-menu a').forEach(link => {
-                const linkPage = link.getAttribute('data-page') + '.html';
-                if (currentPage === linkPage || (currentPage === '' && linkPage === 'index.html')) {
-                    link.classList.add('active');
-                }
-            });
+            const path = window.location.pathname;
+document.querySelectorAll('.navbar-menu a').forEach(link => {
+    const linkPath = link.getAttribute('href');
+    const isActive = path === linkPath || (linkPath !== '/' && path.startsWith(linkPath));
+    link.classList.toggle('active', isActive);
+});
         });
 
         window.addEventListener('load', () => {
