@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maha's Portfolio</title>
+<<<<<<< Updated upstream
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://use.typekit.net/bup7uhq.css">
@@ -63,3 +64,501 @@
         </div>
       </footer>
 </html>
+=======
+    <link rel="stylesheet" href="https://use.typekit.net/prs0gny.css">
+    <script src="https://kit.fontawesome.com/a8ca9dd7b2.js" crossorigin="anonymous"></script>
+    <style>
+      /* Navbar Styles */
+      .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          padding: 1rem 0;
+          z-index: 1000;
+          background: rgba(245, 244, 241, 0.8);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+      }
+
+      .navbar-container {
+          display: flex;
+          gap: 2rem;
+          justify-content: center;
+          align-items: center;
+      }
+
+      .navbar-toggle {
+          display: none;
+      }
+
+      .navbar-menu {
+          display: flex;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          gap: 2rem;
+          align-items: center;
+      }
+
+      .navbar-menu li {
+          margin: 0;
+      }
+
+      .navbar-menu a {
+          text-decoration: none;
+          color: #333;
+          font-family: futura-pt, sans-serif;
+          font-size: 0.75rem;
+          font-weight: 400;
+          letter-spacing: 1.5px;
+          transition: opacity 0.3s ease;
+          text-transform: uppercase;
+      }
+
+      .navbar-menu a:hover {
+          opacity: 0.5;
+      }
+
+      .navbar-menu a.active {
+          font-weight: 600;
+      }
+
+      .navbar-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+      }
+
+      .navbar-overlay.active {
+          display: block;
+          opacity: 1;
+      }
+
+      @media (max-width: 768px) {
+          .navbar {
+              background: transparent;
+              backdrop-filter: none;
+          }
+
+          .navbar-toggle {
+              display: block;
+              position: fixed;
+              top: 1rem;
+              left: 1.5rem;
+              z-index: 1002;
+              background: rgba(245, 244, 241, 0.95);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              border: none;
+              padding: 0.6rem 0.8rem;
+              border-radius: 12px;
+              font-size: 1.3rem;
+              color: #333;
+              cursor: pointer;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          }
+
+          .navbar-container {
+              position: fixed;
+              top: 0;
+              left: -100%;
+              height: 100vh;
+              width: 70%;
+              max-width: 300px;
+              background: rgba(245, 244, 241, 0.98);
+              backdrop-filter: blur(20px);
+              -webkit-backdrop-filter: blur(20px);
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 2.5rem;
+              transition: left 0.3s ease;
+              box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+          }
+
+          .navbar-container.active {
+              left: 0;
+          }
+
+          .navbar-menu {
+              flex-direction: column;
+              gap: 2.5rem;
+          }
+
+          .navbar-menu a {
+              font-size: 0.9rem;
+          }
+      }
+
+      html {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f4f1;
+        font-family: indivisible, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+      }
+      
+
+
+      body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      #og {
+        color: black;
+      }
+
+      #first {
+        color: black;
+        padding-left: 10px;
+      }
+
+      
+
+      #home {
+        color: black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 5% 0px 5%;
+        gap: 6rem;
+        position: relative;
+      }
+
+      #home::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        opacity: 0.03;
+        pointer-events: none;
+      }
+
+      .home-text {
+        flex: 1;
+        max-width: 580px;
+        opacity: 0;
+        animation: fadeInHome 1s ease-out 0.5s forwards;
+        z-index: 2;
+      }
+
+      .big-text {
+        font-family: larken, sans-serif;
+        font-size: clamp(1.3rem, 4.7vw, 3.3rem);
+        font-weight: 400;
+        line-height: 1;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        
+      }
+
+      .home-text h2 {
+        /* font-family: larken, sans-serif; */
+        font-family: indivisible, sans-serif;
+        font-weight: 500;
+        /* font-weight: 300; */
+        font-style: normal;
+        font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+
+      .name-credit {
+        font-size: 1.1rem;
+        color: #666;
+        font-weight: 500;
+        margin-bottom: 2rem;
+      }
+
+      #home p {
+        font-size: clamp(14px, 2vw, 16px);
+        line-height: 150%;
+        color: #666;
+      }
+
+      .social-icons {
+        margin-top: 2rem;
+      }
+
+      /* Photo + overlay wrapper */
+      .photo-frame {
+        position: relative;
+        width: clamp(280px, 35vw, 400px);
+        flex-shrink: 0;
+        opacity: 0;
+        animation: fadeInHome 1s ease-out 0.5s forwards;
+        z-index: 2;
+      }
+
+      #maha {
+        width: 100%;
+        height: 540px;  /* Set fixed height - adjust this number */
+        object-fit: cover;
+        display: block;
+        transition: all 0.6s ease;
+      }
+
+      .photo-frame:hover #maha {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      }
+
+      /* Mind map overlay: top right, bigger and shifted left, bleeding over top edge */
+      .overlay-mindmap {
+        position: absolute;
+        top: -8%;
+        right: -20%;
+        width: 90%;
+        z-index: 4;
+        pointer-events: none;
+        filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));
+        transform: rotate(10deg);
+      }
+
+      /* Affinity map overlay: below mind map, shifted left, still bleeding over right edge */
+      .overlay-affinity {
+        position: absolute;
+        top: 35%;
+        right: -20%;
+        width: 50%;
+        z-index: 3;
+        transform: rotate(10deg);
+        pointer-events: none;
+        filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));
+      }
+
+      /* Wireframe overlay: bottom left, shifted right, bleeding over left edge */
+      .overlay-wireframe {
+        position: absolute;
+        bottom: -6%;
+        left: -10%;
+        width: 50%;
+        z-index: 3;
+        pointer-events: none;
+        transform: rotate(-10deg);
+        filter: drop-shadow(0 6px 14px rgba(0,0,0,0.12));
+      }
+
+      .cta-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #c44d4d;
+  text-decoration: none;
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.cta-link:hover {
+  color: #a03d3d;
+}
+
+      @keyframes fadeInHome {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        #home {
+          flex-direction: column;
+          text-align: center;
+          padding: 100px 5% 50px 5%;
+          justify-content: center;
+          gap: 3rem;
+        }
+
+        .home-text {
+          max-width: 100%;
+          order: 2;
+        }
+
+        .photo-frame {
+          order: 1;
+          width: clamp(220px, 50vw, 350px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        #home {
+          padding: 80px 5% 40px 5%;
+          min-height: 100vh;
+        }
+
+        .big-text {
+          font-size: clamp(2.5rem, 9vw, 4rem);
+        }
+
+        .home-text h2 {
+          font-size: clamp(1.1rem, 4vw, 1.5rem);
+        }
+
+        .photo-frame {
+          width: clamp(200px, 60vw, 280px);
+        }
+
+        .overlay-mindmap {
+          top: -10%;
+          right: -6%;
+          width: 74%;
+        }
+
+        .overlay-affinity {
+          top: 27%;
+          right: -14%;
+          width: 52%;
+        }
+
+        .overlay-wireframe {
+          bottom: -5%;
+          left: -4%;
+          width: 46%;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #home {
+          padding: 70px 4% 30px 4%;
+        }
+
+        .big-text {
+          font-size: 2.2rem;
+          line-height: 0.95;
+        }
+
+        .home-text h2 {
+          font-size: 1rem;
+        }
+
+        .name-credit {
+          font-size: 0.95rem;
+        }
+
+        .photo-frame {
+          width: 70vw;
+          max-width: 250px;
+        }
+
+        .overlay-mindmap {
+          top: -10%;
+          right: -4%;
+          width: 68%;
+        }
+
+        .overlay-affinity {
+          top: 27%;
+          right: -10%;
+          width: 48%;
+        }
+
+        .overlay-wireframe {
+          bottom: -3%;
+          left: -4%;
+          width: 42%;
+        }
+
+        #first {
+          padding-left: 8px;
+        }
+      }
+
+      @media (min-width: 1400px) {
+        #home {
+          padding: 100px 10% 50px 6%;
+        }
+      }
+    </style>   
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar-overlay" id="navbarOverlay"></div>
+    <nav class="navbar" id="navbar">
+        <button class="navbar-toggle" id="navbarToggle">☰</button>
+        <div class="navbar-container" id="navbarMenu">
+            <ul class="navbar-menu">
+                <li><a href="index.html" data-page="index" class="active">Home</a></li>
+                <li><a href="design.html" data-page="design">Design</a></li>
+                <li><a href="community.html" data-page="community">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section id="home">
+      <div class="home-text">
+        <div class="big-text">Amplifying community<div>narratives through design</div></div>
+        <h2>Creating meaningful experiences through thoughtful research and inclusive design, with projects centered on preserving cultural heritage and confronting social issues.</h2>
+        <div class="name-credit">Maha Sidi | M.S. Human-Computer Interaction, Georgia Tech</div>
+        <div class="social-icons">
+          <a id="og" href="https://www.linkedin.com/in/mahasidi/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a id="first" href="https://www.instagram.com/mahaasidi/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          <a id="first" href="mailto: msidi3@gatech.edu" target="_blank"><i class="fa-regular fa-envelope"></i></a>
+          <a id="first" href="https://github.com/mahasidi" target="_blank"><i class="fa fa-github"></i></a>
+          <a href="design.html" class="cta-link">View My Work →</a>
+        </div>
+      </div>
+      <div class="photo-frame">
+        <img id="maha" src="images/on-comp zoom.jpeg" alt="A photo of Maha Sidi looking off to the side.">
+        <img class="overlay-mindmap" src="images/mindmap-overlay.png" alt="">
+        <img class="overlay-affinity" src="images/affinity-overlay.png" alt="">
+        <img class="overlay-wireframe" src="images/wireframe-overlay.png" alt="">
+      </div>
+    </section>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggle = document.getElementById('navbarToggle');
+            const menu = document.getElementById('navbarMenu');
+            const overlay = document.getElementById('navbarOverlay');
+
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    menu.classList.toggle('active');
+                    overlay.classList.toggle('active');
+                    this.textContent = menu.classList.contains('active') ? '✕' : '☰';
+                });
+            }
+
+            if (overlay) {
+                overlay.addEventListener('click', function() {
+                    menu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    if (toggle) toggle.textContent = '☰';
+                });
+            }
+
+            document.querySelectorAll('.navbar-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menu.classList.remove('active');
+                    overlay.classList.remove('active');
+                    if (toggle) toggle.textContent = '☰';
+                });
+            });
+        });
+    </script>
+  </body>
+</html>
+>>>>>>> Stashed changes
